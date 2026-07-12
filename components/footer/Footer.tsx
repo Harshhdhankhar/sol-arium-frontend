@@ -19,7 +19,7 @@ const supportLinks = [
 
 const socials = [
   { label: "Instagram", href: "#" },
-  { label: "TikTok", href: "#" },
+
   { label: "Twitter / X", href: "#" },
   { label: "Pinterest", href: "#" },
 ];
