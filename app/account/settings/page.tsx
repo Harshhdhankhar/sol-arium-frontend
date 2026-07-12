@@ -10,15 +10,9 @@ import { Switch } from "@/components/ui/Switch";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 const LANGUAGE_KEY = "sole-arium.language";
-const CURRENCY_KEY = "sole-arium.currency";
 const PRIVACY_KEY = "sole-arium.privacyPrefs";
 
 const LANGUAGES = ["English (US)", "English (UK)", "French", "German", "Japanese"];
-const CURRENCIES = [
-  { value: "USD", label: "USD ($)" },
-  { value: "EUR", label: "EUR (€)" },
-  { value: "GBP", label: "GBP (£)" },
-];
 
 type PrivacyPrefs = {
   profileActivity: boolean;
@@ -88,7 +82,6 @@ export default function SettingsPage() {
   const router = useRouter();
 
   const [language, setLanguage] = useState(LANGUAGES[0]);
-  const [currency, setCurrency] = useState(CURRENCIES[0].value);
   const [privacy, setPrivacy] = useState<PrivacyPrefs>(defaultPrivacy);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
@@ -96,9 +89,6 @@ export default function SettingsPage() {
     try {
       const storedLanguage = window.localStorage.getItem(LANGUAGE_KEY);
       if (storedLanguage) setLanguage(storedLanguage);
-
-      const storedCurrency = window.localStorage.getItem(CURRENCY_KEY);
-      if (storedCurrency) setCurrency(storedCurrency);
 
       const storedPrivacy = window.localStorage.getItem(PRIVACY_KEY);
       if (storedPrivacy) setPrivacy({ ...defaultPrivacy, ...JSON.parse(storedPrivacy) });
@@ -113,15 +103,6 @@ export default function SettingsPage() {
     setLanguage(value);
     try {
       window.localStorage.setItem(LANGUAGE_KEY, value);
-    } catch {
-      // ignore write failure, preference still applies for this session
-    }
-  }
-
-  function updateCurrency(value: string) {
-    setCurrency(value);
-    try {
-      window.localStorage.setItem(CURRENCY_KEY, value);
     } catch {
       // ignore write failure, preference still applies for this session
     }
@@ -158,19 +139,6 @@ export default function SettingsPage() {
             {LANGUAGES.map((lang) => (
               <option key={lang} value={lang}>
                 {lang}
-              </option>
-            ))}
-          </SelectField>
-        </Section>
-
-        <Section
-          title="Currency"
-          description="Save a preferred currency for your account. This won't change how prices are shown across the site."
-        >
-          <SelectField id="currency" value={currency} onChange={updateCurrency}>
-            {CURRENCIES.map((c) => (
-              <option key={c.value} value={c.value}>
-                {c.label}
               </option>
             ))}
           </SelectField>
