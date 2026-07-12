@@ -33,9 +33,6 @@ const defaultPrivacy: PrivacyPrefs = {
 const selectClass =
   "w-full appearance-none rounded-lg border border-line bg-paper px-4 py-2.5 pr-10 text-sm text-ink transition-colors focus:border-ink focus:outline-none";
 
-const comingSoonPill =
-  "text-[10px] uppercase tracking-wide text-ink-faint border border-line rounded-full px-2 py-0.5";
-
 function Section({
   title,
   description,
@@ -90,7 +87,6 @@ export default function SettingsPage() {
   const { user, signOut } = useAuth();
   const router = useRouter();
 
-  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [language, setLanguage] = useState(LANGUAGES[0]);
   const [currency, setCurrency] = useState(CURRENCIES[0].value);
   const [privacy, setPrivacy] = useState<PrivacyPrefs>(defaultPrivacy);
@@ -157,31 +153,6 @@ export default function SettingsPage() {
       />
 
       <div className="space-y-8">
-        <Section title="Appearance" description="Choose how the studio looks on your screen.">
-          <div className="inline-flex items-center gap-1 rounded-full border border-line p-1">
-            <button
-              type="button"
-              onClick={() => setTheme("light")}
-              data-cursor="pointer"
-              className={cn(
-                "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                theme === "light" ? "bg-ink text-paper" : "text-ink-muted"
-              )}
-            >
-              Light
-            </button>
-            <button
-              type="button"
-              disabled
-              aria-disabled="true"
-              className="flex cursor-not-allowed items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-ink-faint"
-            >
-              Dark
-              <span className={comingSoonPill}>Coming Soon</span>
-            </button>
-          </div>
-        </Section>
-
         <Section title="Language" description="Set the language used across your account pages.">
           <SelectField id="language" value={language} onChange={updateLanguage}>
             {LANGUAGES.map((lang) => (
@@ -254,18 +225,7 @@ export default function SettingsPage() {
               Change Password
             </MagneticButton>
 
-            <div className="mt-6 flex items-center justify-between gap-4 border-t border-line pt-6">
-              <div>
-                <div className="flex items-center gap-2">
-                  <p className="text-sm font-medium">Two-Factor Authentication</p>
-                  <span className={comingSoonPill}>Coming Soon</span>
-                </div>
-                <p className="mt-1 text-sm text-ink-muted">
-                  Add an extra layer of security when signing in.
-                </p>
-              </div>
-              <Switch checked={false} onChange={() => {}} label="Two-Factor Authentication" disabled />
-            </div>
+
           </Section>
         )}
 
