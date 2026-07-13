@@ -19,52 +19,52 @@ type FAQ = {
 
 const faqs: FAQ[] = [
   {
-    id: "faq-status",
-    question: "What do the pre-order status stages mean?",
+    id: "faq-custom",
+    question: "What makes Sole Arium footwear different?",
     answer:
-      "Every reservation moves through four stages: Reserved, once your deposit or payment is confirmed; In Production, while your pair is cut, lasted, and finished by hand; Ready to Ship, once it clears quality inspection; and Shipped, when it leaves the studio with tracking attached. Follow each milestone from the Pre-Orders tab in your account, alongside an estimated delivery window that narrows as production progresses.",
+      "Every silhouette is designed around natural movement — the way your foot bends, spreads, and lands. We build on lasts developed through years of observation, not trends. Each pair is crafted in limited runs, by hand, using materials chosen for how they feel as well as how they look.",
   },
   {
-    id: "faq-cancel",
-    question: "Can I cancel or change the size on a reservation?",
+    id: "faq-reservation",
+    question: "How do reservations work?",
     answer:
-      "Reservations can be cancelled free of charge any time before the In Production stage — after that, materials have already been cut to your size, so a cancellation is handled case by case. To change a size, cancel the original hold and place a new reservation while stock remains open; a deposit can't be transferred between sizes once cutting has begun.",
+      "Rather than mass-producing and hoping for a fit, we release in numbered drops. You place a reservation with a deposit to secure your pair. It then moves through four stages — Reserved, In Production, Ready to Ship, Shipped — each visible from your account. Your pair is built to your size, for you.",
   },
   {
     id: "faq-fit",
-    question: "How should I choose a size?",
+    question: "How do I find the right fit?",
     answer:
-      "Our lasts run true to size for most feet, though a few silhouettes — noted on the product page — are cut a half size long to suit a broader forefoot. If you've worn a previous Sole Arium release, stick with that size; if this is your first pair, our studio team can advise based on your usual size in other brands through the contact channels below.",
+      "Our lasts run true to size for most feet, though some silhouettes are cut slightly longer to accommodate a broader forefoot — we note this on each product page. If you have a previous Sole Arium pair, that size will carry over. If you are unsure, our studio can advise based on your usual size across other brands.",
   },
   {
-    id: "faq-returns",
-    question: "What's the return and exchange policy for a limited run?",
+    id: "faq-colorway",
+    question: "Can I customise the colour or materials?",
     answer:
-      "Because each colorway is produced in a fixed, numbered quantity, we don't hold backstock for exchanges — once a run sells out, a return is refunded rather than swapped. Unworn pairs in original packaging can be returned within 14 days of delivery for a full refund; pre-orders follow the same window, measured from the day your pair ships rather than the day you reserved it.",
+      "Each drop is a fixed design — colourway, materials, and proportions are set when the run is announced. We make considered choices about every element so that each release stands as intended. Over time, archive colourways reappear as limited restocks.",
   },
   {
     id: "faq-shipping",
-    question: "Where do you ship, and how long does it take?",
+    question: "Where do you ship?",
     answer:
-      "We currently ship to the United States, United Kingdom, EU, and select territories across Asia-Pacific, with in-stock orders leaving the studio within two business days. Reserved pairs ship directly from production on the date shown in your timeline, so transit time is added on top of the estimated delivery window already listed on your reservation.",
+      "We ship to the United States, United Kingdom, EU, and select territories across Asia-Pacific. In-stock orders leave the studio within two business days. Reserved pairs ship once they clear inspection, on the date shown in your timeline.",
   },
   {
     id: "faq-membership",
-    question: "How do membership tiers and early access work?",
+    question: "What do membership tiers offer?",
     answer:
-      "Membership is earned through points from purchases and tenure, moving from Member to Founding Member to Icon Status. Each tier unlocks earlier access to a drop before it opens to the public — 12 hours for Members, up to 48 hours for Icon Status — alongside shipping upgrades and, at the top tier, a standing invitation to visit the studio in person.",
+      "Membership is earned through purchases and tenure, moving from Member to Founding Member to Icon Status. Each tier unlocks earlier access to new drops — from 12 hours up to 48 hours — alongside shipping upgrades and, at the top tier, an invitation to visit the studio.",
   },
   {
     id: "faq-payment",
-    question: "How are deposits and payment for reservations handled?",
+    question: "How does payment work?",
     answer:
-      "Most reservations are held with a deposit, with the balance charged automatically once your pair enters production — reflected in your account as Deposit Paid or Paid in Full. Some early-access drops require payment in full at the time of reservation instead; where that applies, it's stated clearly before you confirm.",
+      "Most reservations are held with a deposit, with the balance charged automatically once your pair enters production. Some early-access drops require payment in full at the time of reservation. Either way, you will know the total before you confirm.",
   },
   {
-    id: "faq-delay",
-    question: "What happens if my reserved size doesn't ship on time?",
+    id: "faq-returns",
+    question: "What if my shoes do not fit?",
     answer:
-      "Estimated delivery windows account for the realities of small-batch production, but if a delay pushes past the window shown on your reservation, we'll email you directly with a revised date and the option to cancel for a full refund, no questions asked. It's rare — our production team flags at-risk builds well before a date is missed.",
+      "If your pair does not fit, you have 14 days from delivery to return unworn shoes in the original packaging for a full refund. Because each colourway is produced in a fixed quantity, exchanges are not held as backstock — returns are refunded instead. We will help you find the right size for the next drop.",
   },
 ];
 
@@ -143,8 +143,8 @@ export default function SupportPage() {
     <div>
       <SectionHeader
         eyebrow="Support"
-        title="How Can We Help"
-        description="Answers on reservations, fit, shipping, and membership — and a direct line to the studio if you need more."
+        title="How can we help"
+        description="Answers on reservations, fit, shipping, and membership — plus a direct line to the studio."
       />
 
       <Reveal className="rounded-2xl border border-line px-6 md:px-7">
@@ -161,7 +161,7 @@ export default function SupportPage() {
       </Reveal>
 
       <Reveal delay={0.1} className="mt-14 rounded-2xl border border-line p-6 md:p-7">
-        <p className="eyebrow mb-8 text-ink-muted">Still Need Something?</p>
+        <p className="eyebrow mb-8 text-ink-muted">Still need something?</p>
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           {channels.map((item) => (
             <div key={item.label}>
@@ -177,7 +177,7 @@ export default function SupportPage() {
         </div>
         <div className="mt-10 border-t border-line pt-8">
           <MagneticButton href="/contact" variant="solid" size="md">
-            Contact The Studio
+            Contact the Studio
           </MagneticButton>
         </div>
       </Reveal>

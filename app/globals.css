@@ -6,9 +6,32 @@
   :root {
     --font-display: "Times New Roman", serif;
     --font-sans: system-ui, sans-serif;
-    --paper: #ffffff;
-    --ink: #111111;
+
+    --ink: 20 20 20;
+    --ink-soft: 40 40 40;
+    --ink-muted: 100 100 100;
+    --ink-faint: 150 150 150;
+
+    --paper: 255 255 255;
+    --paper-soft: 245 245 245;
+    --paper-warm: 240 238 234;
+
     --gold: #e8a020;
+
+    color-scheme: light;
+  }
+
+  .dark {
+    --ink: 232 226 215;
+    --ink-soft: 242 238 230;
+    --ink-muted: 168 162 152;
+    --ink-faint: 120 115 105;
+
+    --paper: 10 10 10;
+    --paper-soft: 23 23 23;
+    --paper-warm: 35 35 35;
+
+    color-scheme: dark;
   }
 
   * {
@@ -39,16 +62,17 @@
   }
 
   body {
-    background-color: var(--paper);
-    color: var(--ink);
+    background-color: rgb(var(--paper));
+    color: rgb(var(--ink));
     font-family: var(--font-sans);
     overflow-x: hidden;
     font-feature-settings: "ss01", "cv01";
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   ::selection {
-    background: var(--ink);
-    color: var(--paper);
+    background: rgb(var(--ink));
+    color: rgb(var(--paper));
   }
 
   /* Hide default cursor on desktop where custom cursor is active */

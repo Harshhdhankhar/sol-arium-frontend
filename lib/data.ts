@@ -21,6 +21,18 @@ export type Product = {
   image: string;
   hoverImage: string;
   badge?: string;
+  /** Local product-detail imagery (e.g. "/products/arium-one-bone/01.jpg").
+   *  Optional — the PDP gallery falls back to [image, hoverImage] when absent. */
+  gallery?: string[];
+  /** Short benefit copy shown on the PDP purchase panel. */
+  description?: string;
+  /** Compact highlight chips shown on the PDP purchase panel. */
+  highlights?: string[];
+  /** Materials accordion copy on the PDP. */
+  materials?: string;
+  /** Fit accordion copy on the PDP. */
+  fit?: string;
+  availability?: "In Stock" | "Low Stock" | "Pre-Order" | "Sold Out";
 };
 
 export const products: Product[] = [
@@ -34,6 +46,13 @@ export const products: Product[] = [
     image: img("1595950653106-6c9ebd614d3a"),
     hoverImage: img("1600185365483-26d7a4cc7519"),
     badge: "New",
+    description:
+      "Every step, considered. A low-profile silhouette with contoured comfort and a subtle gold accent.",
+    highlights: ["Contoured footbed", "Gold accent stripe", "Lightweight recycled midsole"],
+    materials:
+      "Plush recycled foam footbed cradles your foot with every step. Bone leather upper selected for softness and breathability. Lightweight outsole designed for flexibility and grip on any surface.",
+    fit: "True to size. The Arium One fits true across most feet — if you're between sizes, size down for a secure low-top feel.",
+    availability: "In Stock",
   },
   {
     slug: "meridian-mid-onyx",
@@ -44,6 +63,13 @@ export const products: Product[] = [
     category: "Mid",
     image: img("1606107557195-0e29a4b5b4aa"),
     hoverImage: img("1608231387042-66d1773070a5"),
+    description:
+      "Extended comfort for long days on your feet. A structured mid-top with support where you need it most.",
+    highlights: ["Targeted ankle support", "Plush cushioning throughout", "All-day comfort"],
+    materials:
+      "Onyx nubuck with ash suede overlays for structure without stiffness. Plush foam collar reduces pressure around the ankle. Cushioned insole supports every hour on concrete.",
+    fit: "True to size with a slightly roomier midfoot. Ideal if you prefer space to breathe without losing secure support.",
+    availability: "In Stock",
   },
   {
     slug: "vector-runner-slate",
@@ -55,6 +81,13 @@ export const products: Product[] = [
     image: img("1552346154-21d32810aba3"),
     hoverImage: img("1584735175315-9d5df23860e6"),
     badge: "Drop 04",
+    description:
+      "Designed to carry you farther with less fatigue. A responsive runner built for effortless movement.",
+    highlights: ["Energy-return foam", "Breathable knit upper", "Reflective detailing"],
+    materials:
+      "Breathable knit upper moves with your foot, not against it. Dual-density foam returns energy with every stride — tuned for a smooth, low-fatigue ride across pavement and track.",
+    fit: "Slightly narrow through the forefoot. Wide-footed runners may prefer sizing up half a size for a more comfortable fit.",
+    availability: "Pre-Order",
   },
   {
     slug: "atlas-high-noir",
@@ -65,6 +98,13 @@ export const products: Product[] = [
     category: "High",
     image: img("1542291026-7eec264c27ff"),
     hoverImage: img("1525966222134-fcfa99b8ae77"),
+    description:
+      "Confidence at every elevation. A supportive high-top that moves with you, finished in matte noir.",
+    highlights: ["Secure padded collar", "Full-range ankle support", "Amber accent detail"],
+    materials:
+      "Matte leather upper wraps the foot in structure without sacrificing flexibility. Padded ankle collar provides secure support while allowing natural movement. Hand-applied amber accent.",
+    fit: "True to size. The high collar sits snugly around the ankle — consider half a size up if you wear thicker socks.",
+    availability: "In Stock",
   },
   {
     slug: "arium-one-sand",
@@ -75,6 +115,13 @@ export const products: Product[] = [
     category: "Low",
     image: img("1595341888016-a392ef81b7de"),
     hoverImage: img("1600185365483-26d7a4cc7519"),
+    description:
+      "The same personalized comfort, now in a warmer palette. Sand and cream, built for everyday ease.",
+    highlights: ["Contoured footbed", "Cream leather lining", "Lightweight recycled midsole"],
+    materials:
+      "Sand leather upper with a cream lining for a softer feel against the skin. Contoured recycled foam footbed provides all-day comfort from morning to night.",
+    fit: "True to size, identical last to Arium One — Bone / Gold.",
+    availability: "In Stock",
   },
   {
     slug: "meridian-mid-clay",
@@ -86,6 +133,13 @@ export const products: Product[] = [
     image: img("1491553895911-0055eca6402d"),
     hoverImage: img("1606107557195-0e29a4b5b4aa"),
     badge: "Limited",
+    description:
+      "A limited edition of our most supportive mid-top, in warm clay and bone. Premium comfort, rare finish.",
+    highlights: ["Targeted ankle support", "Limited edition colorway", "All-day cushioning"],
+    materials:
+      "Clay nubuck with bone suede overlays. Cushioned foam collar reduces pressure around the ankle during long days on your feet.",
+    fit: "True to size with a slightly roomier midfoot, identical last to Meridian Mid — Onyx / Ash.",
+    availability: "Low Stock",
   },
   {
     slug: "vector-runner-carbon",
@@ -96,6 +150,13 @@ export const products: Product[] = [
     category: "Runner",
     image: img("1560769629-975ec94e6a86"),
     hoverImage: img("1552346154-21d32810aba3"),
+    description:
+      "Effortless movement, reimagined in carbon and gold. The same responsive comfort, a darker expression.",
+    highlights: ["Energy-return foam", "Breathable knit upper", "Reflective heel detail"],
+    materials:
+      "Breathable knit upper moves with your foot for natural flexibility. Dual-density foam returns energy with every stride for a smooth, low-fatigue ride.",
+    fit: "Slightly narrow through the forefoot, identical last to Vector Runner — Slate / Ivory.",
+    availability: "In Stock",
   },
   {
     slug: "atlas-high-fog",
@@ -106,77 +167,13 @@ export const products: Product[] = [
     category: "High",
     image: img("1608231387042-66d1773070a5"),
     hoverImage: img("1542291026-7eec264c27ff"),
-  },
-];
-
-export const hero = {
-  eyebrow: "Drop 04 — Available Now",
-  heading: ["Move", "Without", "Limits"],
-  copy:
-    "Considered silhouettes built from full-grain leather and recycled technical knit — designed in small studios, produced in limited runs.",
-  image: img("1600185365483-26d7a4cc7519", 1800),
-  floatImage: img("1595950653106-6c9ebd614d3a", 900),
-};
-
-export const featured: Product = {
-  slug: "arium-one-bone",
-  name: "Arium One — Bone",
-  line: "Drop 04 · The Signature Silhouette",
-  price: 240,
-  colorway: "Bone / Gold",
-  category: "Low",
-  image: img("1600185365483-26d7a4cc7519", 1800),
-  hoverImage: img("1595950653106-6c9ebd614d3a", 1800),
-  badge: "Featured Drop",
-};
-
-export const story = {
-  eyebrow: "The Craft",
-  heading: "Built From The Ground Up",
-  image: img("1552346154-21d32810aba3", 1920),
-  lead:
-    "Every Sole Arium silhouette begins on a workbench, not a spreadsheet. A last is carved, worn, corrected, and carved again — sometimes for a year — before a single unit leaves the studio.",
-  quote:
-    "We don't chase seasons. We chase the version of the shoe that doesn't need changing.",
-  quoteAttribution: "Founder's Note, Studio 04",
-};
-
-export type Collection = {
-  slug: string;
-  title: string;
-  season: string;
-  count: number;
-  description: string;
-  image: string;
-};
-
-export const collections: Collection[] = [
-  {
-    slug: "monument",
-    title: "Monument",
-    season: "SS / 26",
-    count: 12,
     description:
-      "Architectural silhouettes cut in bone, ash and warm stone. Built to stand still and to move.",
-    image: img("1600185365483-26d7a4cc7519", 1600),
-  },
-  {
-    slug: "nocturne",
-    title: "Nocturne",
-    season: "FW / 25",
-    count: 9,
-    description:
-      "A study in darkness — onyx leather, matte suede and single strokes of amber.",
-    image: img("1542291026-7eec264c27ff", 1600),
-  },
-  {
-    slug: "meridian",
-    title: "Meridian",
-    season: "Core",
-    count: 15,
-    description:
-      "The everyday line. Refined proportions engineered for the length of a city day.",
-    image: img("1606107557195-0e29a4b5b4aa", 1600),
+      "The Atlas High in fog and steel — cool, quiet, and built for comfortable movement at every step.",
+    highlights: ["Secure padded collar", "Full-range ankle support", "Steel-toned hardware"],
+    materials:
+      "Matte leather upper with padded ankle collar for secure, comfortable support. Steel-toned hardware completes the refined silhouette.",
+    fit: "True to size, identical last to Atlas High — Noir / Amber.",
+    availability: "In Stock",
   },
 ];
 
@@ -269,6 +266,77 @@ export const journal: JournalEntry[] = [
   },
 ];
 
+export const hero = {
+  eyebrow: "Movement, Meet Craft",
+  heading: ["Footwear Designed", "Around How You", "Move"],
+  copy:
+    "We begin with how you walk, stand, and move — then build a shoe around it. Premium materials, personalized comfort, limited runs.",
+  image: img("1600185365483-26d7a4cc7519", 1800),
+  floatImage: img("1595950653106-6c9ebd614d3a", 900),
+};
+
+export const featured: Product = {
+  slug: "arium-one-bone",
+  name: "Arium One — Bone",
+  line: "Drop 04 · Built Around Your Stride",
+  price: 240,
+  colorway: "Bone / Gold",
+  category: "Low",
+  image: img("1600185365483-26d7a4cc7519", 1800),
+  hoverImage: img("1595950653106-6c9ebd614d3a", 1800),
+  badge: "Limited Release",
+};
+
+export const story = {
+  eyebrow: "Our Method",
+  heading: "Designed Around Your Movement",
+  image: img("1552346154-21d32810aba3", 1920),
+  lead:
+    "We don't start with a sketch. We start with how you move — the way your foot lands, the hours you spend standing, the surfaces you cross. Every curve is shaped by understanding, not trends.",
+  quote:
+    "When a shoe moves with you, you forget you're wearing it.",
+  quoteAttribution: "Founder, Sole Arium",
+};
+
+export type Collection = {
+  slug: string;
+  title: string;
+  season: string;
+  count: number;
+  description: string;
+  image: string;
+};
+
+export const collections: Collection[] = [
+  {
+    slug: "monument",
+    title: "Monument",
+    season: "SS / 26",
+    count: 12,
+    description:
+      "Clean, architectural forms in bone, ash, and warm stone. Built for standing still and moving freely.",
+    image: img("1600185365483-26d7a4cc7519", 1600),
+  },
+  {
+    slug: "nocturne",
+    title: "Nocturne",
+    season: "FW / 25",
+    count: 9,
+    description:
+      "A study in contrast — deep onyx, matte suede, and accents of amber. Serious comfort, serious style.",
+    image: img("1542291026-7eec264c27ff", 1600),
+  },
+  {
+    slug: "meridian",
+    title: "Meridian",
+    season: "Core",
+    count: 15,
+    description:
+      "Everyday essentials, refined. Proportions built around how you move through a city day.",
+    image: img("1606107557195-0e29a4b5b4aa", 1600),
+  },
+];
+
 export type Testimonial = {
   quote: string;
   author: string;
@@ -278,19 +346,19 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "The most considered pair I own. It disappears on the foot and lets everything else speak.",
+      "I forgot I was wearing them by day three. They just become part of how you move.",
     author: "Ada Morau",
     role: "Creative Director, Berlin",
   },
   {
     quote:
-      "Sole Arium understands restraint. Nothing shouts, yet everything is unmistakable.",
+      "Finally, a shoe designed for people who spend all day standing and still want to look put together.",
     author: "Kenji Alvarez",
     role: "Architect, Tokyo",
   },
   {
     quote:
-      "I've worn them for a year straight. They've aged like an object that was meant to be kept.",
+      "They adapt to how I walk, not the other way around. That makes all the difference.",
     author: "Noor El-Amin",
     role: "Photographer, London",
   },
@@ -307,25 +375,25 @@ export const values: Value[] = [
     index: "01",
     title: "Premium Materials",
     description:
-      "Full-grain leathers and recycled technical knits, selected for how they age, not just how they arrive.",
+      "Thoughtfully sourced materials selected for comfort, durability, and how gracefully they age beside you.",
   },
   {
     index: "02",
     title: "Designed for Everyday",
     description:
-      "Silhouettes engineered to move from studio to street without a single compromise in form.",
+      "Every silhouette is designed around real movement — from your morning commute to your evening studio session.",
   },
   {
     index: "03",
     title: "Built for Comfort",
     description:
-      "A proprietary sole compound tuned across eighteen months of wear testing for all-day support.",
+      "Our sole compound is tuned for all-day wear. Support where you need it, flexibility where you move.",
   },
   {
     index: "04",
     title: "Crafted to Last",
     description:
-      "Assembled by hand in limited runs, finished to a standard that rewards years, not seasons.",
+      "Hand-assembled in limited runs. Finished to a standard that rewards years of movement, not seasons of trends.",
   },
 ];
 
@@ -345,6 +413,7 @@ export const navLinks = [
   { label: "Shop", href: "/shop" },
   { label: "Collections", href: "/collections" },
   { label: "About", href: "/about" },
-  { label: "Journal", href: "/journal" },
+  { label: "Find Your Fit", href: "/foot-problems" },
   { label: "Contact", href: "/contact" },
+  { label: "Journal", href: "/journal" },
 ];

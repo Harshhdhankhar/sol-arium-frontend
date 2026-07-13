@@ -9,7 +9,6 @@ import type { Product } from "@/lib/data";
 import { formatPrice, cn } from "@/lib/utils";
 import { useStore } from "@/lib/store";
 
-const SIZES = [7, 8, 9, 9.5, 10, 10.5, 11, 12];
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function QuickViewModal({
@@ -22,15 +21,9 @@ export function QuickViewModal({
   onClose: () => void;
 }) {
   const { addToCart, toggleWishlist, isWishlisted } = useStore();
-  const [size, setSize] = useState<number | null>(null);
-  const [sizeError, setSizeError] = useState(false);
   const saved = isWishlisted(product.slug);
 
   const handleAdd = () => {
-    if (!size) {
-      setSizeError(true);
-      return;
-    }
     addToCart(product);
     onClose();
   };
@@ -83,42 +76,17 @@ export function QuickViewModal({
                 <p className="mt-2 text-lg text-ink-muted">{formatPrice(product.price)}</p>
                 <p className="mt-1 text-sm text-ink-muted">{product.colorway}</p>
 
-                <div className="mt-7">
-                  <div className="mb-2.5 flex items-center justify-between">
-                    <span className="eyebrow text-ink-faint">Select Size (US)</span>
-                    {sizeError && <span className="text-[11px] text-gold-deep">Select a size</span>}
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {SIZES.map((s) => (
-                      <button
-                        key={s}
-                        onClick={() => {
-                          setSize(s);
-                          setSizeError(false);
-                        }}
-                        data-cursor="pointer"
-                        className={cn(
-                          "flex h-10 min-w-10 items-center justify-center rounded-full border px-2.5 text-sm transition-colors",
-                          size === s ? "border-ink bg-ink text-paper" : "border-line hover:border-ink"
-                        )}
-                      >
-                        {s}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
                 <div className="mt-8 flex items-center gap-3">
                   <button
                     onClick={handleAdd}
                     data-cursor="pointer"
                     className="h-12 flex-1 rounded-full bg-ink text-[13px] font-medium text-paper transition-colors hover:bg-ink-soft"
                   >
-                    Add to Bag
+                    Reserve
                   </button>
                   <button
                     onClick={() => toggleWishlist(product)}
-                    aria-label={saved ? "Remove from saved" : "Save for later"}
+                    aria-label={saved ? "Remove from saved" : "Save to your list"}
                     data-cursor="pointer"
                     className={cn(
                       "flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-colors",
@@ -130,12 +98,12 @@ export function QuickViewModal({
                 </div>
 
                 <Link
-                  href="/shop"
+                  href={`/shop/${product.slug}`}
                   onClick={onClose}
                   data-cursor="pointer"
                   className="link-underline mt-6 block text-center text-sm text-ink-muted"
                 >
-                  View Full Collection
+                  Full Details
                 </Link>
               </div>
             </div>

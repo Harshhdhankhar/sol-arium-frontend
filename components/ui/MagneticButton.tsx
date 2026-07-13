@@ -34,6 +34,7 @@ type Props = VariantProps<typeof button> & {
   magnetic?: boolean;
   ariaLabel?: string;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 export function MagneticButton({
@@ -46,12 +47,14 @@ export function MagneticButton({
   magnetic = true,
   ariaLabel,
   type = "button",
+  disabled = false,
 }: Props) {
   const { ref, x, y, onMouseMove, onMouseLeave } = useMagnetic(0.3);
+  const isMagnetic = magnetic && !disabled;
 
   const content = (
     <motion.span
-      style={magnetic ? { x, y } : undefined}
+      style={isMagnetic ? { x, y } : undefined}
       className="relative z-10 inline-flex items-center gap-2"
     >
       {children}
@@ -59,14 +62,14 @@ export function MagneticButton({
   );
 
   const sharedProps = {
-    className: cn(button({ variant, size }), className),
-    onMouseMove: magnetic ? onMouseMove : undefined,
-    onMouseLeave: magnetic ? onMouseLeave : undefined,
-    "data-cursor": "pointer" as const,
+    className: cn(button({ variant, size }), disabled && "pointer-events-none opacity-50", className),
+    onMouseMove: isMagnetic ? onMouseMove : undefined,
+    onMouseLeave: isMagnetic ? onMouseLeave : undefined,
+    "data-cursor": disabled ? undefined : ("pointer" as const),
     "aria-label": ariaLabel,
   };
 
-  if (href) {
+  if (href && !disabled) {
     return (
       <Link
         href={href}
@@ -82,6 +85,7 @@ export function MagneticButton({
     <button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       ref={ref as React.Ref<HTMLButtonElement>}
       {...sharedProps}
     >

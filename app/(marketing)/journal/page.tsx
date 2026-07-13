@@ -17,7 +17,7 @@ export default function JournalPage() {
       <section className="section pb-14 pt-0 md:pb-20">
         <div className="container">
           <span className="eyebrow mb-6 block">Journal</span>
-          <h1 className="max-w-3xl font-display text-5xl leading-[1.02] tracking-editorial md:text-7xl">
+          <h1 className="max-w-3xl font-display text-5xl leading-[1.1] tracking-editorial md:text-7xl">
             <RevealText text="Notes From The Studio" />
           </h1>
           <Reveal delay={0.2} className="mt-7 max-w-md">

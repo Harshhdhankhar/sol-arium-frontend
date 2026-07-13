@@ -16,9 +16,9 @@ export function WishlistDrawer() {
     <Drawer open={wishlistOpen} onClose={closeWishlist} title={`Saved (${items.length})`}>
       {items.length === 0 ? (
         <div className="flex h-full flex-col items-center justify-center gap-3 px-7 text-center">
-          <p className="font-display text-2xl">Nothing saved yet</p>
+          <p className="font-display text-2xl">Your list is empty</p>
           <p className="text-sm text-ink-muted">
-            Tap the heart on any silhouette to save it here.
+            Tap the heart on any style to save it to your list.
           </p>
         </div>
       ) : (
@@ -43,7 +43,7 @@ export function WishlistDrawer() {
                   </div>
                   <button
                     onClick={() => toggleWishlist(item)}
-                    aria-label={`Remove ${item.name} from saved`}
+                    aria-label={`Remove ${item.name} from your saved list`}
                     data-cursor="pointer"
                     className="text-ink-faint transition-colors hover:text-ink"
                   >
@@ -55,7 +55,7 @@ export function WishlistDrawer() {
                   data-cursor="pointer"
                   className="link-underline self-start text-xs font-medium uppercase tracking-wide"
                 >
-                  Add to Bag
+                  Reserve
                 </button>
               </div>
             </li>
@@ -65,7 +65,7 @@ export function WishlistDrawer() {
       {items.length > 0 && (
         <div className="border-t border-line px-7 py-7">
           <MagneticButton variant="outline" size="lg" className="w-full" onClick={closeWishlist}>
-            Continue Browsing
+            Continue Exploring
           </MagneticButton>
         </div>
       )}

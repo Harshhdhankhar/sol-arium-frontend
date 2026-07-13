@@ -11,9 +11,9 @@ export function WhySoleArium() {
     <section className="section">
       <div className="container">
         <Reveal className="mb-16 max-w-xl md:mb-24">
-          <span className="eyebrow mb-4 block">Why Sole Arium</span>
+          <span className="eyebrow mb-4 block">The Ethos</span>
           <h2 className="font-display text-4xl tracking-editorial md:text-6xl">
-            Considered In Every Detail
+            Every Detail, Considered
           </h2>
         </Reveal>
 

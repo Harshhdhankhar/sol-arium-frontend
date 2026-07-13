@@ -10,6 +10,7 @@ import { useAuth } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 import { accountNav } from "@/components/account/accountNav";
 import { MembershipBadge } from "@/components/account/MembershipBadge";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 function initials(name: string) {
   return name
@@ -89,7 +90,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
       <div className="flex min-h-screen items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <span className="h-10 w-10 animate-spin rounded-full border-2 border-line border-t-ink" />
-          <span className="eyebrow text-ink-muted">Loading Account</span>
+          <span className="eyebrow text-ink-muted">Loading your account</span>
         </div>
       </div>
     );
@@ -111,10 +112,10 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
               className="hidden items-center gap-2 text-sm text-ink-muted transition-colors hover:text-ink lg:flex"
             >
               <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
-              Back to Site
+              Back to site
             </Link>
             <Link href="/account" className="lg:hidden">
-              <Image src="/tp-removebg-preview.png" alt="Sole Arium" width={594} height={420} className="h-14 w-auto" priority />
+              <Image src="/logo.png" alt="Sole Arium" width={752} height={332} className="h-14 w-auto" priority />
             </Link>
           </div>
 
@@ -122,23 +123,29 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
             Account
           </span>
 
-          <button
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open account menu"
-            data-cursor="pointer"
-            className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-paper-soft lg:hidden"
-          >
-            <Menu className="h-5 w-5" strokeWidth={1.5} />
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open navigation menu"
+              data-cursor="pointer"
+              className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-paper-soft"
+            >
+              <Menu className="h-5 w-5" strokeWidth={1.5} />
+            </button>
+          </div>
 
-          <button
-            onClick={handleLogout}
-            data-cursor="pointer"
-            className="hidden items-center gap-2 text-sm text-ink-muted transition-colors hover:text-ink lg:flex"
-          >
-            <LogOut className="h-4 w-4" strokeWidth={1.5} />
-            Log Out
-          </button>
+          <div className="hidden items-center gap-4 lg:flex">
+            <ThemeToggle />
+            <button
+              onClick={handleLogout}
+              data-cursor="pointer"
+              className="flex items-center gap-2 text-sm text-ink-muted transition-colors hover:text-ink"
+            >
+              <LogOut className="h-4 w-4" strokeWidth={1.5} />
+              Log Out
+            </button>
+          </div>
         </div>
       </header>
 
@@ -176,7 +183,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
                 <UserCard compact />
                 <button
                   onClick={() => setMobileOpen(false)}
-                  aria-label="Close menu"
+                  aria-label="Close navigation menu"
                   data-cursor="pointer"
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full hover:bg-paper-soft"
                 >
@@ -193,7 +200,7 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
                   className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-ink-muted hover:bg-paper-soft hover:text-ink"
                 >
                   <LogOut className="h-[18px] w-[18px]" strokeWidth={1.5} />
-                  Log Out
+              Sign Out
                 </button>
               </div>
             </motion.aside>

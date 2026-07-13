@@ -36,23 +36,23 @@ const DEFAULT_COMM_PREFS: CommPrefs = {
 const COMM_PREF_ROWS: { key: CommPrefKey; title: string; description: string }[] = [
   {
     key: "orderUpdates",
-    title: "Order & Shipping Updates",
-    description: "Get notified about order confirmations, shipping, and delivery status.",
+    title: "Order & Shipping",
+    description: "Confirmations, shipping alerts, and delivery status.",
   },
   {
     key: "newDrops",
-    title: "New Drop Announcements",
-    description: "Be the first to know when new silhouettes and collections release.",
+    title: "New Drops",
+    description: "Be the first to know when a new silhouette drops.",
   },
   {
     key: "marketing",
-    title: "Marketing & Offers",
-    description: "Occasional promotions, discounts, and curated recommendations.",
+    title: "Offers & Stories",
+    description: "Occasional promotions and curated recommendations.",
   },
   {
     key: "sms",
-    title: "SMS Notifications",
-    description: "Receive text alerts for time-sensitive updates on your device.",
+    title: "SMS",
+    description: "Time-sensitive updates sent straight to your phone.",
   },
 ];
 
@@ -121,11 +121,11 @@ export default function ProfilePage() {
     setPasswordError(null);
     setPasswordSuccess(false);
     if (newPassword.length < 8) {
-      setPasswordError("New password must be at least 8 characters.");
+      setPasswordError("Password must be at least 8 characters.");
       return;
     }
     if (newPassword !== confirmPassword) {
-      setPasswordError("New passwords do not match.");
+      setPasswordError("Passwords do not match.");
       return;
     }
     setPasswordLoading(true);
@@ -149,8 +149,8 @@ export default function ProfilePage() {
     return (
       <EmptyState
         icon={User}
-        title="Create Your Profile"
-        description="You're browsing as a guest. Create a full Sole Arium account to manage your photo, personal information, password, and preferences."
+        title="Create your profile"
+        description="Browsing as a guest. Create an account to manage your photo, personal details, and preferences."
         actionLabel="Create Account"
         actionHref="/create-account"
       />
@@ -160,14 +160,14 @@ export default function ProfilePage() {
   return (
     <div>
       <SectionHeader
-        eyebrow="Account Settings"
-        title="Your Profile"
-        description="Manage your photo, personal information, security, and communication preferences."
+        eyebrow="Settings"
+        title="Profile"
+        description="Your photo, personal details, security, and preferences — all in one place."
       />
 
       <div className="space-y-8">
         <Reveal className="rounded-2xl border border-line p-6 md:p-7">
-          <p className="mb-6 font-medium">Profile Photo</p>
+          <p className="mb-6 font-medium">Photo</p>
           <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
             <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full bg-ink">
               {avatarPreview ? (
@@ -187,9 +187,9 @@ export default function ProfilePage() {
                 magnetic={false}
                 onClick={() => fileInputRef.current?.click()}
               >
-                Change Photo
+                New photo
               </MagneticButton>
-              <p className="mt-3 text-xs text-ink-faint">JPG or PNG, up to 5MB.</p>
+              <p className="mt-3 text-xs text-ink-faint">JPG or PNG. Up to 5MB.</p>
               <input
                 ref={fileInputRef}
                 type="file"
@@ -202,11 +202,11 @@ export default function ProfilePage() {
         </Reveal>
 
         <Reveal delay={0.05} className="rounded-2xl border border-line p-6 md:p-7">
-          <p className="mb-6 font-medium">Personal Information</p>
+          <p className="mb-6 font-medium">Personal Details</p>
           <div className="grid grid-cols-1 gap-x-8 gap-y-7 md:grid-cols-2">
             <FloatingInput label="Full Name" value={name} onChange={setName} required autoComplete="name" />
             <FloatingInput
-              label="Email Address"
+              label="Email"
               type="email"
               value={email}
               onChange={setEmail}
@@ -214,7 +214,7 @@ export default function ProfilePage() {
               autoComplete="email"
             />
             <FloatingInput
-              label="Phone Number"
+              label="Phone"
               type="tel"
               value={phone}
               onChange={setPhone}
@@ -223,7 +223,7 @@ export default function ProfilePage() {
           </div>
           <div className="mt-8 flex items-center gap-4">
             <MagneticButton type="button" variant="solid" size="sm" magnetic={false} onClick={handleSaveProfile}>
-              Save Changes
+              Save
             </MagneticButton>
             <span
               className={cn(
@@ -232,13 +232,13 @@ export default function ProfilePage() {
               )}
             >
               <Check className="h-3.5 w-3.5" strokeWidth={1.5} />
-              Profile updated
+              Saved
             </span>
           </div>
         </Reveal>
 
         <Reveal delay={0.1} className="rounded-2xl border border-line p-6 md:p-7">
-          <p className="mb-6 font-medium">Password</p>
+          <p className="mb-6 font-medium">Change Password</p>
           <form onSubmit={handlePasswordSubmit} className="space-y-7">
             <FloatingInput
               label="Current Password"
@@ -275,13 +275,13 @@ export default function ProfilePage() {
               </p>
             )}
             <MagneticButton type="submit" variant="solid" size="sm" magnetic={false}>
-              {passwordLoading ? "Updating…" : "Update Password"}
+              {passwordLoading ? "Updating…" : "Update"}
             </MagneticButton>
           </form>
         </Reveal>
 
         <Reveal delay={0.15} className="rounded-2xl border border-line p-0">
-          <p className="p-6 pb-0 font-medium md:p-7 md:pb-0">Communication Preferences</p>
+          <p className="p-6 pb-0 font-medium md:p-7 md:pb-0">Communication</p>
           <div className="mt-4 divide-y divide-line">
             {COMM_PREF_ROWS.map((row) => (
               <div key={row.key} className="flex items-center justify-between gap-6 px-6 py-5 md:px-7">

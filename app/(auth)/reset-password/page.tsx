@@ -22,7 +22,7 @@ export default function ResetPasswordPage() {
     e.preventDefault();
     setError(null);
     if (password !== confirm) {
-      setError("Passwords do not match.");
+      setError("Passwords don&rsquo;t match.");
       return;
     }
     setLoading(true);
@@ -37,16 +37,16 @@ export default function ResetPasswordPage() {
 
   if (done) {
     return (
-      <AuthLayout title="Password Updated" subtitle="">
+      <AuthLayout title="Password updated." subtitle="">
         <div className="flex flex-col items-start gap-5">
           <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold/15">
             <Check className="h-5 w-5 text-gold-deep" strokeWidth={1.5} />
           </span>
           <p className="text-pretty leading-relaxed text-ink-muted">
-            Your password has been reset. Use it the next time you sign in.
+            Your password has been updated. You can sign in with it now.
           </p>
           <MagneticButton onClick={() => router.push("/sign-in")} variant="solid" size="lg" magnetic={false}>
-            Continue to Sign In
+            Continue to sign in
           </MagneticButton>
         </div>
       </AuthLayout>
@@ -54,11 +54,11 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <AuthLayout title="Create A New Password" subtitle="Choose something you haven't used before.">
+    <AuthLayout title="Create a new password." subtitle="Choose something you haven&rsquo;t used before.">
       <form onSubmit={handleSubmit} className="space-y-7">
         <div>
           <FloatingInput
-            label="New Password"
+            label="New password"
             type="password"
             value={password}
             onChange={setPassword}
@@ -68,7 +68,7 @@ export default function ResetPasswordPage() {
           <PasswordStrength password={password} />
         </div>
         <FloatingInput
-          label="Confirm Password"
+          label="Confirm password"
           type="password"
           value={confirm}
           onChange={setConfirm}
@@ -77,7 +77,7 @@ export default function ResetPasswordPage() {
         />
         {error && <p className="text-sm text-gold-deep">{error}</p>}
         <MagneticButton type="submit" variant="solid" size="lg" className="w-full" magnetic={false}>
-          {loading ? "Updating…" : "Update Password"}
+          {loading ? "Updating…" : "Update password"}
         </MagneticButton>
       </form>
     </AuthLayout>

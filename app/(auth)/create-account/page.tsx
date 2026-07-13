@@ -47,8 +47,8 @@ export default function CreateAccountPage() {
 
   return (
     <AuthLayout
-      title="Join Sole Arium"
-      subtitle="Create an account for early access, reservation tracking, and a saved wishlist."
+      title="Create your account."
+      subtitle="Early access, reserved pairs, and a personal wishlist."
       footer={
         <>
           Already a member?{" "}
@@ -59,7 +59,7 @@ export default function CreateAccountPage() {
       }
     >
       <form onSubmit={handleSubmit} className="space-y-7">
-        <FloatingInput label="Full Name" value={name} onChange={setName} required autoComplete="name" />
+        <FloatingInput label="Full name" value={name} onChange={setName} required autoComplete="name" />
         <FloatingInput
           label="Email"
           type="email"
@@ -88,7 +88,7 @@ export default function CreateAccountPage() {
             className="mt-0.5 h-4 w-4 rounded-sm border-line accent-ink"
           />
           <span>
-            I agree to the <span className="link-underline text-ink">Terms of Service</span> and{" "}
+            I accept the <span className="link-underline text-ink">Terms of Service</span> and{" "}
             <span className="link-underline text-ink">Privacy Policy</span>.
           </span>
         </label>
@@ -96,7 +96,7 @@ export default function CreateAccountPage() {
         {error && <p className="text-sm text-gold-deep">{error}</p>}
 
         <MagneticButton type="submit" variant="solid" size="lg" className="w-full" magnetic={false}>
-          {loading ? "Creating Account…" : "Create Account"}
+          {loading ? "Creating account…" : "Create account"}
         </MagneticButton>
       </form>
 
@@ -111,7 +111,7 @@ export default function CreateAccountPage() {
         data-cursor="pointer"
         className="link-underline mt-8 block w-full text-center text-sm text-ink-muted"
       >
-        Continue as Guest
+        Continue as guest
       </button>
     </AuthLayout>
   );

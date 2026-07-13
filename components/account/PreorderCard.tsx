@@ -77,7 +77,7 @@ export function PreorderCard({
           <p className="mt-1.5 font-medium">{preorder.paymentStatus}</p>
         </div>
         <div>
-          <p className="eyebrow text-ink-faint">Placed On</p>
+          <p className="eyebrow text-ink-faint">Placed on</p>
           <p className="mt-1.5 font-medium">{preorder.placedOn}</p>
         </div>
       </div>
@@ -97,7 +97,7 @@ export function PreorderCard({
           data-cursor="pointer"
           className="flex items-center gap-1.5 text-sm font-medium text-ink"
         >
-          Track Order
+          View Timeline
           <ChevronDown className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")} strokeWidth={1.5} />
         </button>
 
@@ -125,7 +125,7 @@ export function PreorderCard({
 
       {upgraded && (
         <p className="mt-4 text-sm text-gold-deep">
-          Shipping upgraded to {SHIPPING_TIERS.find((t) => t.id === shippingTier)?.label}.
+          Upgraded to {SHIPPING_TIERS.find((t) => t.id === shippingTier)?.label} shipping.
         </p>
       )}
 
@@ -165,7 +165,7 @@ export function PreorderCard({
               setUpgrading(false);
             }}
           >
-            Confirm Upgrade
+            Confirm
           </MagneticButton>
         </div>
       )}

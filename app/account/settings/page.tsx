@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Moon, Sun } from "lucide-react";
 import { useAuth } from "@/lib/auth";
+import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/account/SectionHeader";
 import { Switch } from "@/components/ui/Switch";
@@ -79,6 +80,7 @@ function SelectField({
 
 export default function SettingsPage() {
   const { user, signOut } = useAuth();
+  const { theme, setTheme } = useTheme();
   const router = useRouter();
 
   const [language, setLanguage] = useState(LANGUAGES[0]);
@@ -130,11 +132,40 @@ export default function SettingsPage() {
       <SectionHeader
         eyebrow="Settings"
         title="Preferences"
-        description="Control how Sole Arium looks, speaks, and remembers you."
+        description="How your account looks and behaves."
       />
 
       <div className="space-y-8">
-        <Section title="Language" description="Set the language used across your account pages.">
+        <Section title="Appearance" description="Choose how Sole Arium looks on this device.">
+          <div className="inline-flex items-center gap-1 rounded-full border border-line p-1">
+            <button
+              type="button"
+              onClick={() => setTheme("light")}
+              data-cursor="pointer"
+              className={cn(
+                "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                theme === "light" ? "bg-ink text-paper" : "text-ink-muted hover:text-ink"
+              )}
+            >
+              <Sun className="h-4 w-4" strokeWidth={1.5} />
+              Light
+            </button>
+            <button
+              type="button"
+              onClick={() => setTheme("dark")}
+              data-cursor="pointer"
+              className={cn(
+                "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                theme === "dark" ? "bg-ink text-paper" : "text-ink-muted hover:text-ink"
+              )}
+            >
+              <Moon className="h-4 w-4" strokeWidth={1.5} />
+              Dark
+            </button>
+          </div>
+        </Section>
+
+        <Section title="Language" description="Set your preferred language for account pages.">
           <SelectField id="language" value={language} onChange={updateLanguage}>
             {LANGUAGES.map((lang) => (
               <option key={lang} value={lang}>
@@ -144,26 +175,26 @@ export default function SettingsPage() {
           </SelectField>
         </Section>
 
-        <Section title="Privacy" description="Manage what Sole Arium can see and use about your activity.">
+        <Section title="Privacy" description="What Sole Arium can see about your activity.">
           <div className="divide-y divide-line">
             <div className="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0">
               <div>
-                <p className="text-sm font-medium">Show my profile activity to Sole Arium stylists</p>
+                <p className="text-sm font-medium">Show activity to the studio team</p>
                 <p className="mt-1 text-sm text-ink-muted">
-                  Lets stylists see your recent orders and sizing when assisting you.
+                  Lets our team see your recent activity and sizing when assisting you.
                 </p>
               </div>
               <Switch
                 checked={privacy.profileActivity}
                 onChange={(checked) => updatePrivacy("profileActivity", checked)}
-                label="Show my profile activity to Sole Arium stylists"
+                label="Show my profile activity to the studio team"
               />
             </div>
             <div className="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0">
               <div>
-                <p className="text-sm font-medium">Personalized recommendations based on browsing</p>
+                <p className="text-sm font-medium">Personalized recommendations</p>
                 <p className="mt-1 text-sm text-ink-muted">
-                  Uses your browsing history to tailor what&rsquo;s recommended to you.
+                  Uses your browsing history to tailor what you see.
                 </p>
               </div>
               <Switch
@@ -178,17 +209,17 @@ export default function SettingsPage() {
         {user.isGuest ? (
           <Section
             title="Security & Account"
-            description="Password, two-factor authentication, and account deletion require a full account."
+            description="Password, security, and account settings require a full account."
           >
             <p className="mb-5 text-sm text-ink-muted">
-              You&rsquo;re browsing as a guest. Create an account to manage security settings and account data.
+              Browsing as a guest. Create an account to manage security and account settings.
             </p>
             <MagneticButton href="/create-account" variant="outline" magnetic={false}>
               Create Account
             </MagneticButton>
           </Section>
         ) : (
-          <Section title="Security" description="Manage your password and account protection.">
+          <Section title="Security" description="Manage your password and account security.">
             <MagneticButton href="/account/profile" variant="outline" magnetic={false}>
               Change Password
             </MagneticButton>
@@ -198,8 +229,8 @@ export default function SettingsPage() {
         )}
 
         <Section
-          title="Notification Preferences"
-          description="Manage which alerts and updates you receive from Sole Arium."
+          title="Notifications"
+          description="Which alerts you receive from Sole Arium."
         >
           <MagneticButton href="/account/notifications" variant="outline" magnetic={false}>
             Manage Notifications
@@ -210,9 +241,7 @@ export default function SettingsPage() {
           <div className="rounded-2xl border border-gold/40 bg-gold/[0.06] p-7">
             <p className="font-medium">Delete Account</p>
             <p className="mt-1.5 text-sm text-ink-muted">
-              This permanently signs you out and clears your local session data on this device. We
-              don&rsquo;t retain a separate server-side account beyond this browser session, so this is
-              effectively how you remove your Sole Arium account here.
+              Signs you out and clears your local session data on this device.
             </p>
 
             <div className="mt-6">
@@ -226,10 +255,9 @@ export default function SettingsPage() {
                 </MagneticButton>
               ) : (
                 <div className="rounded-xl border border-gold/40 bg-paper p-5">
-                  <p className="text-sm font-medium">Are you sure you want to delete your account?</p>
+                  <p className="text-sm font-medium">Are you sure?</p>
                   <p className="mt-1.5 text-sm text-ink-muted">
-                    This can&rsquo;t be undone. You&rsquo;ll be signed out immediately and your local session
-                    data will be cleared from this device.
+                    This can&rsquo;t be undone. You&rsquo;ll be signed out and your local data will be cleared.
                   </p>
                   <div className="mt-4 flex gap-3">
                     <MagneticButton
@@ -238,7 +266,7 @@ export default function SettingsPage() {
                       magnetic={false}
                       onClick={handleDeleteAccount}
                     >
-                      Yes, Delete My Account
+                      Yes, delete my account
                     </MagneticButton>
                     <MagneticButton
                       size="sm"

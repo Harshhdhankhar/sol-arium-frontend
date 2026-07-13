@@ -22,7 +22,7 @@ export function AuthLayout({
         <div className="absolute inset-0 animate-kenburns">
           <Image
             src={AUTH_IMAGE}
-            alt="Sole Arium — worn in motion"
+            alt="Sole Arium — made for movement"
             fill
             sizes="50vw"
             priority
@@ -35,16 +35,16 @@ export function AuthLayout({
           href="/"
           className="absolute left-10 top-10"
         >
-          <Image src="/tp-removebg-preview.png" alt="Sole Arium" width={594} height={420} className="h-14 w-auto brightness-0 invert" priority />
+          <Image src="/logo.png" alt="Sole Arium home" width={752} height={332} className="h-14 w-auto brightness-0 invert" priority />
         </Link>
 
         <div className="absolute inset-x-10 bottom-14 max-w-md">
           <span className="eyebrow mb-5 flex items-center gap-2 text-paper/50">
             <span className="h-1 w-1 rounded-full bg-gold" />
-            Members Only
+            Private Access
           </span>
           <p className="font-display text-4xl leading-[1.1] tracking-editorial text-paper xl:text-5xl">
-            Movement, reserved for those who move first.
+            Designed for those who never stand still.
           </p>
         </div>
       </div>
@@ -55,7 +55,7 @@ export function AuthLayout({
             href="/"
             className="mb-12 block lg:hidden"
           >
-            <Image src="/tp-removebg-preview.png" alt="Sole Arium" width={594} height={420} className="h-14 w-auto" priority />
+            <Image src="/logo.png" alt="Sole Arium home" width={752} height={332} className="h-14 w-auto" priority />
           </Link>
 
           <Reveal>

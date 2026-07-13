@@ -13,6 +13,7 @@ import { MobileMenu } from "@/components/navbar/MobileMenu";
 import { SearchOverlay } from "@/components/navbar/SearchOverlay";
 import { MegaMenu } from "@/components/navbar/MegaMenu";
 import { AccountMenu } from "@/components/navbar/AccountMenu";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,7 +54,7 @@ export function Navbar() {
             data-cursor="pointer"
             className="flex items-center"
           >
-            <Image src="/tp-removebg-preview.png" alt="Sole Arium" width={594} height={420} className="h-14 w-auto md:h-16" priority />
+            <Image src="/logo.png" alt="Sole Arium home" width={752} height={332} className="h-14 w-auto md:h-16" priority />
           </Link>
 
           <nav className="hidden items-center gap-9 md:flex">
@@ -71,7 +72,7 @@ export function Navbar() {
                     data-cursor="pointer"
                     className={cn(
                       "link-underline text-[13px] font-medium uppercase tracking-wide text-ink transition-colors",
-                      isActive && "text-gold-deep"
+                      isActive && "text-gold-deep after:!scale-x-100 after:!bg-gold"
                     )}
                   >
                     {link.label}
@@ -92,6 +93,8 @@ export function Navbar() {
             </button>
 
             <AccountMenu />
+
+            <ThemeToggle className="hidden sm:flex" />
 
             <button
               onClick={openWishlist}

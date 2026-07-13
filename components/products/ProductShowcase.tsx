@@ -51,14 +51,14 @@ export function ProductShowcase() {
   }, [pinEnabled]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-ink text-paper">
+    <section ref={sectionRef} className="relative overflow-hidden bg-noir text-bone">
       <div className="container pt-24 md:pt-28">
         <Reveal className="flex items-end justify-between">
           <div>
-            <span className="eyebrow mb-4 block text-paper/40">Showcase</span>
+            <span className="eyebrow mb-4 block text-bone/40">The Range</span>
             <h2 className="font-display text-4xl tracking-editorial md:text-6xl">
-              Every Angle, <br className="hidden md:block" />
-              Every Detail
+              Every Detail, <br className="hidden md:block" />
+              Every Silhouette
             </h2>
           </div>
         </Reveal>
@@ -73,7 +73,7 @@ export function ProductShowcase() {
             key={product.slug}
             className="group relative w-[78vw] shrink-0 snap-start sm:w-[54vw] md:w-[30vw] lg:w-[26vw]"
           >
-            <div className="relative aspect-[3/4] overflow-hidden bg-paper/5">
+            <div className="relative aspect-[3/4] overflow-hidden bg-bone/5">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -81,28 +81,28 @@ export function ProductShowcase() {
                 sizes="(min-width: 768px) 28vw, 78vw"
                 className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"
               />
-              <span className="absolute left-5 top-5 font-display text-sm text-paper/50">
+              <span className="absolute left-5 top-5 font-display text-sm text-bone/50">
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>
             <div className="mt-5 flex items-start justify-between gap-3">
               <div>
-                <p className="text-[11px] uppercase tracking-wide text-paper/40">
+                <p className="text-[11px] uppercase tracking-wide text-bone/40">
                   {product.line}
                 </p>
                 <p className="mt-1 font-display text-xl tracking-editorial">{product.name}</p>
               </div>
-              <p className="shrink-0 text-sm text-paper/70">{formatPrice(product.price)}</p>
+              <p className="shrink-0 text-sm text-bone/70">{formatPrice(product.price)}</p>
             </div>
           </div>
         ))}
 
         <div className="flex w-[78vw] shrink-0 snap-start flex-col items-start justify-center gap-6 sm:w-[54vw] md:w-[26vw]">
           <p className="font-display text-3xl leading-tight tracking-editorial">
-            See the full range of silhouettes.
+            Explore every silhouette in the collection.
           </p>
           <MagneticButton href="/shop" variant="gold">
-            Shop All
+            Browse All
             <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
           </MagneticButton>
         </div>

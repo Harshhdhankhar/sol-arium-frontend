@@ -14,11 +14,11 @@ export default function OrdersPage() {
   if (user.isGuest) {
     return (
       <div>
-        <SectionHeader eyebrow="Purchases" title="Orders" />
+        <SectionHeader eyebrow="History" title="Your Orders" />
         <EmptyState
           icon={Package}
-          title="Sign In To View Orders"
-          description="Create an account or sign in to view your order history, invoices, and delivery tracking."
+          title="Sign in to view your orders"
+          description="Create an account or sign in to view your order history and delivery tracking."
           actionLabel="Sign In"
           actionHref="/sign-in"
         />
@@ -32,25 +32,25 @@ export default function OrdersPage() {
   return (
     <div>
       <SectionHeader
-        eyebrow="Purchases"
-        title="Orders"
-        description="Track deliveries, review invoices, and revisit everything you've purchased from Sole Arium."
+        eyebrow="History"
+        title="Your Orders"
+        description="Track deliveries, review invoices, and revisit past purchases."
       />
 
       {orders.length === 0 ? (
         <EmptyState
           icon={Package}
-          title="No Orders Yet"
-          description="You haven't placed an order yet — explore the current collection and find your next pair."
+          title="No orders yet"
+          description="You haven't placed an order yet — browse the collection and find your next pair."
           actionLabel="Explore the Collection"
           actionHref="/shop"
         />
       ) : (
         <div className="space-y-14">
           <div>
-            <p className="mb-6 font-medium">Current Orders</p>
+            <p className="mb-6 font-medium">In Progress</p>
             {currentOrders.length === 0 ? (
-              <p className="text-sm leading-relaxed text-ink-muted">No active orders right now.</p>
+              <p className="text-sm leading-relaxed text-ink-muted">No active orders.</p>
             ) : (
               <div className="space-y-6">
                 {currentOrders.map((order) => (
@@ -61,9 +61,9 @@ export default function OrdersPage() {
           </div>
 
           <div>
-            <p className="mb-6 font-medium">Order History</p>
+            <p className="mb-6 font-medium">Completed</p>
             {pastOrders.length === 0 ? (
-              <p className="text-sm leading-relaxed text-ink-muted">No past orders yet.</p>
+              <p className="text-sm leading-relaxed text-ink-muted">No completed orders yet.</p>
             ) : (
               <div className="space-y-6">
                 {pastOrders.map((order) => (

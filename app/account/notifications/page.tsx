@@ -90,21 +90,21 @@ export default function NotificationsPage() {
       <SectionHeader
         eyebrow="Notifications"
         title="Stay in the Loop"
-        description="Drop announcements, restock alerts, pre-order milestones, and shipping updates, all in one place."
+        description="Drop announcements, restock alerts, and order updates — all in one place."
       />
 
       {notifications.length === 0 ? (
         <EmptyState
           icon={Bell}
-          title="You're All Caught Up"
-          description="New drop announcements, restock alerts, and order updates will show up here."
+          title="All caught up"
+          description="Drop announcements, restock alerts, and order updates will appear here."
           actionLabel="Explore the Collection"
           actionHref="/shop"
         />
       ) : (
         <>
           <div className="mb-6 flex items-center justify-between">
-            <p className="font-medium">Recent Notifications</p>
+            <p className="font-medium">Recent</p>
             <button
               type="button"
               onClick={markAllAsRead}
@@ -156,7 +156,7 @@ export default function NotificationsPage() {
       )}
 
       <Reveal className="mt-14 rounded-2xl border border-line p-7">
-        <p className="mb-6 font-medium">Notification Preferences</p>
+        <p className="mb-6 font-medium">Preferences</p>
         <div className="divide-y divide-line">
           {Object.entries(notificationPreferenceCopy).map(([key, copy]) => {
             const prefKey = key as NotificationPreferenceKey;

@@ -13,9 +13,9 @@ import {
 
 export const accountNav = [
   { label: "Overview", href: "/account", icon: LayoutGrid },
-  { label: "Pre-orders", href: "/account/pre-orders", icon: Watch },
+  { label: "Reservations", href: "/account/pre-orders", icon: Watch },
   { label: "Wishlist", href: "/account/wishlist", icon: Heart },
-  { label: "Orders", href: "/account/orders", icon: ShoppingBag },
+  { label: "Purchases", href: "/account/orders", icon: ShoppingBag },
   { label: "Profile", href: "/account/profile", icon: User },
   { label: "Addresses", href: "/account/addresses", icon: MapPin },
   { label: "Notifications", href: "/account/notifications", icon: Bell },

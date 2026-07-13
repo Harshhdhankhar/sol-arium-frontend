@@ -59,8 +59,8 @@ export default function VerifyEmailPage() {
 
   return (
     <AuthLayout
-      title="Verify Your Email"
-      subtitle={`Enter the 6-digit code we sent to ${user?.email || "your inbox"}.`}
+      title="Verify your email."
+      subtitle={`Enter the six-digit code sent to ${user?.email || "your email"}.`}
     >
       <div className="flex gap-2.5" onPaste={handlePaste}>
         {digits.map((digit, i) => (
@@ -93,7 +93,7 @@ export default function VerifyEmailPage() {
         className="mt-8 w-full"
         magnetic={false}
       >
-        {loading ? "Verifying…" : complete ? "Verify Email" : "Enter Code"}
+        {loading ? "Verifying…" : complete ? "Verify email" : "Enter code"}
       </MagneticButton>
 
       <button
@@ -102,7 +102,7 @@ export default function VerifyEmailPage() {
         data-cursor="pointer"
         className="link-underline mt-6 block text-center text-sm text-ink-muted disabled:text-ink-faint"
       >
-        {cooldown > 0 ? `Resend code in ${cooldown}s` : "Resend code"}
+        {cooldown > 0 ? `Send again in ${cooldown}s` : "Send again"}
       </button>
     </AuthLayout>
   );

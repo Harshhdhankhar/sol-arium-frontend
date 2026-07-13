@@ -24,8 +24,8 @@ export default function PreOrdersPage() {
         <SectionHeader eyebrow="Reservations" title="Pre-orders" />
         <EmptyState
           icon={Watch}
-          title="Sign In To View Reservations"
-          description="Create an account or sign in to track production progress on your reserved silhouettes."
+          title="Sign in to view your reservations"
+          description="Create an account or sign in to follow the progress of your reserved silhouettes."
           actionLabel="Sign In"
           actionHref="/sign-in"
         />
@@ -38,15 +38,15 @@ export default function PreOrdersPage() {
       <SectionHeader
         eyebrow="Reservations"
         title="Pre-orders"
-        description="Track production progress on every silhouette you've reserved."
+        description="Follow each silhouette from reservation to arrival."
       />
 
       {items.length === 0 ? (
         <EmptyState
           icon={Watch}
-          title="Reserve Your First Pair"
-          description="Limited runs move fast. Explore the current drop and reserve a silhouette before it's gone."
-          actionLabel="Explore The Collection"
+          title="Reserve your first pair"
+          description="Limited runs move fast. Browse the current drop and reserve before it's gone."
+          actionLabel="Explore the Collection"
           actionHref="/shop"
         />
       ) : (

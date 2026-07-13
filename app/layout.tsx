@@ -4,10 +4,22 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { StoreProvider } from "@/lib/store";
 import { AuthProvider } from "@/lib/auth";
+import { ThemeProvider } from "@/lib/theme";
 import { Loader } from "@/components/ui/Loader";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { WishlistDrawer } from "@/components/cart/WishlistDrawer";
+
+// Runs before hydration so the correct theme applies on first paint —
+// without this, the page would flash light mode before React mounts.
+const THEME_INIT_SCRIPT = `
+(function () {
+  try {
+    var stored = localStorage.getItem("sole-arium.theme");
+    var dark = stored ? stored === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (dark) document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+`;
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -27,22 +39,23 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://solearium.com"),
   title: {
-    default: "Sole Arium — Move Without Limits",
+    default: "Sole Arium — Footwear Designed Around How You Move",
     template: "%s — Sole Arium",
   },
   description:
-    "Sole Arium is a premium footwear house designing considered silhouettes for a life in motion. Full-grain leathers, limited runs, built to be kept.",
+    "Premium customizable footwear, recommended based on your movement and comfort. Walk better, stand longer, move confidently.",
   keywords: [
     "Sole Arium",
-    "premium sneakers",
-    "luxury footwear",
-    "designer sneakers",
-    "limited edition sneakers",
+    "customizable footwear",
+    "premium comfort shoes",
+    "personalized footwear",
+    "movement designed shoes",
+    "everyday comfort footwear",
   ],
   openGraph: {
-    title: "Sole Arium — Move Without Limits",
+    title: "Sole Arium — Footwear Designed Around How You Move",
     description:
-      "Considered footwear for a life in motion. Designed in small studios, produced in limited runs.",
+      "Tell us how you move. We'll recommend the pair built for you. Premium customizable footwear, limited releases.",
     siteName: "Sole Arium",
     type: "website",
   },
@@ -55,19 +68,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`is-loading ${fraunces.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`is-loading ${fraunces.variable} ${inter.variable}`}
+    >
       <body>
-        <AuthProvider>
-          <StoreProvider>
-            <SmoothScroll>
-              <Loader />
-              <CustomCursor />
-              {children}
-              <CartDrawer />
-              <WishlistDrawer />
-            </SmoothScroll>
-          </StoreProvider>
-        </AuthProvider>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <ThemeProvider>
+          <AuthProvider>
+            <StoreProvider>
+              <SmoothScroll>
+                <Loader />
+                {children}
+                <CartDrawer />
+                <WishlistDrawer />
+              </SmoothScroll>
+            </StoreProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

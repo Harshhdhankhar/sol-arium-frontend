@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { collections } from "@/lib/data";
+import { collections, navLinks } from "@/lib/data";
 
 export function MegaMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
@@ -56,7 +56,7 @@ export function MegaMenu({ open, onClose }: { open: boolean; onClose: () => void
 
             <div className="mt-8 flex items-center justify-between border-t border-line pt-6">
               <p className="max-w-md text-sm text-ink-muted">
-                Three collections, one standard of craft — explore the full range.
+                Three collections, one commitment to craft.
               </p>
               <Link
                 href="/collections"
@@ -64,8 +64,24 @@ export function MegaMenu({ open, onClose }: { open: boolean; onClose: () => void
                 data-cursor="pointer"
                 className="link-underline shrink-0 text-sm font-medium"
               >
-                View All Collections
+                All Collections
               </Link>
+            </div>
+
+            <div className="mt-6 border-t border-line pt-6">
+              <nav className="flex gap-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={onClose}
+                    data-cursor="pointer"
+                    className="link-underline text-sm text-ink-muted transition-colors hover:text-ink"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
             </div>
           </div>
         </motion.div>

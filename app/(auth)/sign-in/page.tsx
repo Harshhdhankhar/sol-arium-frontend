@@ -41,8 +41,8 @@ export default function SignInPage() {
 
   return (
     <AuthLayout
-      title="Welcome Back"
-      subtitle="Sign in to track reservations, manage your wishlist, and access early drops."
+      title="Welcome back."
+      subtitle="Sign in to your account."
       footer={
         <>
           Don&rsquo;t have an account?{" "}
@@ -88,7 +88,7 @@ export default function SignInPage() {
         {error && <p className="text-sm text-gold-deep">{error}</p>}
 
         <MagneticButton type="submit" variant="solid" size="lg" className="w-full" magnetic={false}>
-          {loading ? "Signing In…" : "Sign In"}
+          {loading ? "Signing in…" : "Sign in"}
         </MagneticButton>
       </form>
 
@@ -103,11 +103,11 @@ export default function SignInPage() {
         data-cursor="pointer"
         className="link-underline mt-8 block w-full text-center text-sm text-ink-muted"
       >
-        Continue as Guest
+        Continue as guest
       </button>
 
       <p className="mt-10 text-center text-[11px] leading-relaxed text-ink-faint">
-        By continuing you agree to Sole Arium&rsquo;s{" "}
+        By continuing, you agree to our{" "}
         <span className="link-underline text-ink-muted">Terms of Service</span> and{" "}
         <span className="link-underline text-ink-muted">Privacy Policy</span>.
       </p>

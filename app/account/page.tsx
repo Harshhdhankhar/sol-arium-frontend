@@ -33,36 +33,36 @@ export default function AccountOverviewPage() {
   return (
     <div>
       <SectionHeader
-        eyebrow="Member Home"
-        title={`Welcome Back, ${firstName}`}
+        eyebrow="Overview"
+        title={`Good to see you, ${firstName}`}
         description={
           user.isGuest
-            ? "You're browsing as a guest. Create an account to save your wishlist and track reservations."
-            : "Here's what's happening with your reservations, wishlist, and the studio."
+            ? "Browsing as a guest — create an account to save your wishlist and track reservations."
+            : "Your reservations, wishlist, and studio updates — all in one place."
         }
         action={
           user.isGuest && (
             <MagneticButton href="/create-account" variant="solid">
-              Create Account
+              Join the Studio
             </MagneticButton>
           )
         }
       />
 
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-        <StatCard label="Membership" value={user.membershipLevel} delay={0} />
-        <StatCard label="Member Since" value={user.memberSince || "—"} delay={0.05} />
+        <StatCard label="Status" value={user.membershipLevel} delay={0} />
+        <StatCard label="Joined" value={user.memberSince || "—"} delay={0.05} />
         <StatCard
           label="Early Access"
           value={user.earlyAccess ? "Active" : "Not Yet"}
-          hint={user.earlyAccess ? "24 hrs before public drops" : "Unlocks at Founding tier"}
+          hint={user.earlyAccess ? "24 hours before the public" : "Unlocks at Founding tier"}
           accent={user.earlyAccess}
           delay={0.1}
         />
         <StatCard
-          label="Reward Points"
+          label="Points"
           value={user.points.toLocaleString()}
-          hint={user.isGuest ? "Sign in to earn points" : "Earned on every order"}
+          hint={user.isGuest ? "Sign in to earn points" : "Earned with every order"}
           delay={0.15}
         />
       </div>
@@ -72,7 +72,7 @@ export default function AccountOverviewPage() {
           <div className="mb-6 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <Watch className="h-4 w-4 text-gold" strokeWidth={1.5} />
-              <p className="font-medium">Current Pre-orders</p>
+              <p className="font-medium">Pre-orders</p>
             </div>
             <Link href="/account/pre-orders" className="link-underline text-sm text-ink-muted" data-cursor="pointer">
               View All
@@ -81,7 +81,7 @@ export default function AccountOverviewPage() {
 
           {activePreorders.length === 0 ? (
             <p className="text-sm leading-relaxed text-ink-muted">
-              {user.isGuest ? "Sign in to view reservations." : "No active reservations right now."}
+              {user.isGuest ? "Sign in to view your reservations." : "No active reservations right now."}
             </p>
           ) : (
             <div className="space-y-5">
@@ -107,7 +107,7 @@ export default function AccountOverviewPage() {
           <div className="mb-6 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <Heart className="h-4 w-4 text-gold" strokeWidth={1.5} />
-              <p className="font-medium">Wishlist Summary</p>
+              <p className="font-medium">Wishlist</p>
             </div>
             <Link href="/account/wishlist" className="link-underline text-sm text-ink-muted" data-cursor="pointer">
               View All
@@ -116,7 +116,7 @@ export default function AccountOverviewPage() {
 
           {wishlisted.length === 0 ? (
             <p className="text-sm leading-relaxed text-ink-muted">
-              Nothing saved yet — tap the heart on any silhouette to save it here.
+              Nothing saved yet — tap the heart on any silhouette to add it here.
             </p>
           ) : (
             <div className="flex items-center gap-3">
@@ -134,7 +134,7 @@ export default function AccountOverviewPage() {
       </div>
 
       <Reveal className="mt-14">
-        <p className="mb-6 font-medium">Recent Activity</p>
+        <p className="mb-6 font-medium">Activity</p>
         <div className="divide-y divide-line rounded-2xl border border-line">
           {activity.slice(0, 5).map((item) => (
             <div key={item.id} className="flex items-center justify-between gap-4 px-6 py-4">
@@ -147,7 +147,7 @@ export default function AccountOverviewPage() {
 
       <div className="mt-14">
         <div className="mb-6 flex items-center justify-between">
-          <p className="font-medium">Upcoming Releases</p>
+          <p className="font-medium">Coming Soon</p>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
           {upcomingReleases.map((release, i) => (
@@ -182,9 +182,9 @@ export default function AccountOverviewPage() {
 
       <div className="mt-14">
         <div className="mb-6 flex items-center justify-between">
-          <p className="font-medium">Recommended For You</p>
+          <p className="font-medium">You Might Also Like</p>
           <Link href="/shop" className="link-underline text-sm text-ink-muted" data-cursor="pointer">
-            Shop All
+            Browse All
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
@@ -195,7 +195,7 @@ export default function AccountOverviewPage() {
       </div>
 
       <Reveal className="mt-14 rounded-2xl border border-line bg-paper-soft p-7 md:p-10">
-        <p className="font-medium">Exclusive Member Benefits</p>
+          <p className="font-medium">Member Benefits</p>
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {benefits.map((benefit) => (
             <div key={benefit.title} className="flex items-start gap-3">
@@ -213,7 +213,7 @@ export default function AccountOverviewPage() {
             className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-ink"
             data-cursor="pointer"
           >
-            See how to unlock the next tier
+            See how to unlock your next tier
             <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
           </Link>
         )}

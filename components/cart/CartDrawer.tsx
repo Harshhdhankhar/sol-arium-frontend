@@ -13,12 +13,12 @@ export function CartDrawer() {
   const [requested, setRequested] = useState(false);
 
   return (
-    <Drawer open={cartOpen} onClose={closeCart} title={`Bag (${cart.length})`}>
+    <Drawer open={cartOpen} onClose={closeCart} title={`Cart (${cart.length})`}>
       {cart.length === 0 ? (
         <div className="flex h-full flex-col items-center justify-center gap-3 px-7 text-center">
-          <p className="font-display text-2xl">Your bag is empty</p>
+          <p className="font-display text-2xl">Nothing reserved yet</p>
           <p className="text-sm text-ink-muted">
-            Explore the current drop and add a pair to reserve.
+            Browse the collection and reserve a pair that moves with you.
           </p>
         </div>
       ) : (
@@ -84,7 +84,7 @@ export function CartDrawer() {
             </div>
             {requested ? (
               <p className="eyebrow text-center normal-case tracking-normal text-ink">
-                Reservation received — our concierge team will confirm availability by email.
+                Reservation received — we&rsquo;ll confirm availability within 48 hours.
               </p>
             ) : (
               <MagneticButton
@@ -93,12 +93,12 @@ export function CartDrawer() {
                 className="w-full"
                 onClick={() => setRequested(true)}
               >
-                Request Reservation
+                Reserve Now
               </MagneticButton>
             )}
             <p className="mt-4 text-center text-[11px] leading-relaxed text-ink-faint">
-              Sole Arium drops are produced in limited runs. Reservations are confirmed
-              in order received.
+Each drop is produced in limited quantities. Reservations are confirmed
+in order received.
             </p>
           </div>
         </div>

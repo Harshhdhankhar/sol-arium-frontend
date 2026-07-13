@@ -68,7 +68,7 @@ export default function AddressesPage() {
         <SectionHeader eyebrow="Addresses" title="Addresses" />
         <EmptyState
           icon={MapPin}
-          title="Sign In To Manage Addresses"
+          title="Sign in to manage addresses"
           description="Create an account or sign in to save shipping addresses for faster checkout."
           actionLabel="Sign In"
           actionHref="/sign-in"
@@ -169,12 +169,12 @@ export default function AddressesPage() {
   return (
     <div>
       <SectionHeader
-        eyebrow={`${addresses.length} Saved`}
+        eyebrow={`${addresses.length} saved`}
         title="Addresses"
-        description="Manage the shipping addresses tied to your account."
+        description="Manage your saved shipping addresses."
         action={
           <MagneticButton onClick={formOpen ? closeForm : openAddForm} variant={formOpen ? "outline" : "solid"}>
-            {formOpen ? "Cancel" : "Add Address"}
+            {formOpen ? "Cancel" : "New Address"}
           </MagneticButton>
         }
       />
@@ -190,7 +190,7 @@ export default function AddressesPage() {
           >
             <form onSubmit={handleSubmit} className="mb-8 rounded-2xl border border-line p-6 md:p-7">
               <p className="mb-6 font-display text-xl tracking-editorial">
-                {editingId ? "Edit Address" : "Add A New Address"}
+                {editingId ? "Edit Address" : "Add a New Address"}
               </p>
               <div className="grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2">
                 <FloatingInput
@@ -244,12 +244,12 @@ export default function AddressesPage() {
                   onChange={(e) => updateField("isDefault", e.target.checked)}
                   className="h-4 w-4 rounded-sm border-line accent-ink"
                 />
-                Set as default address
+                Set as default shipping address
               </label>
 
               <div className="mt-7 flex gap-3">
                 <MagneticButton type="submit" size="sm" magnetic={false}>
-                  {editingId ? "Save Changes" : "Add Address"}
+                  {editingId ? "Save" : "Add Address"}
                 </MagneticButton>
                 <MagneticButton type="button" size="sm" variant="ghost" magnetic={false} onClick={closeForm}>
                   Cancel
@@ -265,12 +265,12 @@ export default function AddressesPage() {
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-paper-soft">
             <MapPin className="h-6 w-6 text-ink-muted" strokeWidth={1.25} />
           </span>
-          <p className="mt-6 font-display text-2xl tracking-editorial">Add Your First Address</p>
+          <p className="mt-6 font-display text-2xl tracking-editorial">Add your first address</p>
           <p className="mt-3 max-w-sm text-pretty leading-relaxed text-ink-muted">
-            Save a shipping address so checkout is faster next time.
+            Save an address so checkout is faster next time.
           </p>
-          <MagneticButton onClick={openAddForm} variant="solid" className="mt-8">
-            Add Address
+            <MagneticButton onClick={openAddForm} variant="solid" className="mt-8">
+            New Address
           </MagneticButton>
         </div>
       ) : (
@@ -312,7 +312,7 @@ export default function AddressesPage() {
                   className="flex items-center gap-1.5 text-sm font-medium text-ink-muted transition-colors hover:text-gold-deep"
                 >
                   <Trash2 className="h-4 w-4" strokeWidth={1.5} />
-                  Delete
+                  Remove
                 </button>
                 {!address.isDefault && (
                   <button
@@ -321,14 +321,14 @@ export default function AddressesPage() {
                     className="flex items-center gap-1.5 text-sm font-medium text-ink-muted transition-colors hover:text-ink"
                   >
                     <Check className="h-4 w-4" strokeWidth={1.5} />
-                    Set As Default
+                    Set as Default
                   </button>
                 )}
               </div>
 
               {confirmDeleteId === address.id && (
                 <div className="mt-6 rounded-xl border border-gold/40 bg-gold/[0.06] p-5">
-                  <p className="text-sm font-medium">Delete this address?</p>
+                  <p className="text-sm font-medium">Remove this address?</p>
                   <p className="mt-1.5 text-sm text-ink-muted">This can&rsquo;t be undone.</p>
                   <div className="mt-4 flex gap-3">
                     <MagneticButton
@@ -337,10 +337,10 @@ export default function AddressesPage() {
                       magnetic={false}
                       onClick={() => handleDelete(address.id)}
                     >
-                      Yes, Delete
+                      Yes, Remove
                     </MagneticButton>
                     <MagneticButton size="sm" variant="ghost" magnetic={false} onClick={() => setConfirmDeleteId(null)}>
-                      Keep Address
+                      Keep
                     </MagneticButton>
                   </div>
                 </div>

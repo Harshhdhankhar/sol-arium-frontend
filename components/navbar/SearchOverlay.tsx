@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Search, X } from "lucide-react";
-import { products, collections, journal } from "@/lib/data";
+import { products, collections } from "@/lib/data";
 import { formatPrice } from "@/lib/utils";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -46,12 +46,11 @@ export function SearchOverlay({
           p.colorway.toLowerCase().includes(q)
       ).slice(0, 4),
       collections: collections.filter((c) => c.title.toLowerCase().includes(q)).slice(0, 3),
-      journal: journal.filter((j) => j.title.toLowerCase().includes(q)).slice(0, 3),
     };
   }, [query]);
 
   const hasResults =
-    results && (results.products.length || results.collections.length || results.journal.length);
+    results && (results.products.length || results.collections.length);
 
   return (
     <AnimatePresence>
@@ -71,7 +70,7 @@ export function SearchOverlay({
                   ref={inputRef}
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search silhouettes, collections, journal…"
+                  placeholder="Search styles, collections…"
                   className="w-full bg-transparent font-display text-3xl tracking-editorial placeholder:text-ink-faint focus:outline-none md:text-5xl"
                 />
               </div>
@@ -87,11 +86,11 @@ export function SearchOverlay({
 
             <div className="flex-1 overflow-y-auto py-10">
               {!query && (
-                <p className="eyebrow">Try “Meridian”, “Runner”, or “Craft”</p>
+                <p className="eyebrow">Try “Meridian”, “Runner”, or “Heritage”</p>
               )}
 
               {query && !hasResults && (
-                <p className="text-ink-muted">No results for “{query}”.</p>
+                <p className="text-ink-muted">No results for “{query}”</p>
               )}
 
               {results && results.products.length > 0 && (
@@ -144,25 +143,6 @@ export function SearchOverlay({
                 </div>
               )}
 
-              {results && results.journal.length > 0 && (
-                <div>
-                  <p className="eyebrow mb-4">Journal</p>
-                  <ul className="space-y-2">
-                    {results.journal.map((j) => (
-                      <li key={j.slug}>
-                        <Link
-                          href="/journal"
-                          onClick={onClose}
-                          data-cursor="pointer"
-                          className="link-underline text-lg"
-                        >
-                          {j.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
           </div>
         </motion.div>

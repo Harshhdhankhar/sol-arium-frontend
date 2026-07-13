@@ -10,8 +10,6 @@ import { formatPrice, cn } from "@/lib/utils";
 import { useStore } from "@/lib/store";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
-const SIZES = [7, 8, 9, 9.5, 10, 10.5, 11, 12];
-
 const swatchColor: Record<string, string> = {
   Bone: "#e8e2d6",
   Sand: "#dcc9a3",
@@ -27,18 +25,12 @@ export function WishlistItemCard({ product, index = 0 }: { product: Product; ind
   const { addToCart, toggleWishlist } = useStore();
   const variants = products.filter((p) => p.name === product.name);
   const [active, setActive] = useState(product);
-  const [size, setSize] = useState<number | null>(null);
-  const [sizeError, setSizeError] = useState(false);
   const [moved, setMoved] = useState(false);
 
   const lowStock = active.badge === "Limited";
-  const availability = lowStock ? "Low Stock — 3 Left" : "In Stock";
+  const availability = lowStock ? "Low Stock — 3 remaining" : "In Stock";
 
   const handleMoveToCart = () => {
-    if (!size) {
-      setSizeError(true);
-      return;
-    }
     addToCart(active);
     setMoved(true);
   };
@@ -69,7 +61,7 @@ export function WishlistItemCard({ product, index = 0 }: { product: Product; ind
         <Image src={active.image} alt={active.name} fill sizes="200px" className="object-cover" />
         <button
           onClick={() => toggleWishlist(product)}
-          aria-label="Remove from wishlist"
+          aria-label="Remove from saved"
           data-cursor="pointer"
           className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-paper/90"
         >
@@ -93,7 +85,7 @@ export function WishlistItemCard({ product, index = 0 }: { product: Product; ind
 
         {variants.length > 1 && (
           <div className="mt-5">
-            <p className="eyebrow mb-2.5 text-ink-faint">Color</p>
+            <p className="eyebrow mb-2.5 text-ink-faint">Colour</p>
             <div className="flex gap-2.5">
               {variants.map((variant) => {
                 const key = variant.colorway.split(" / ")[0];
@@ -115,34 +107,9 @@ export function WishlistItemCard({ product, index = 0 }: { product: Product; ind
           </div>
         )}
 
-        <div className="mt-5">
-          <div className="mb-2.5 flex items-center justify-between">
-            <p className="eyebrow text-ink-faint">Size (US)</p>
-            {sizeError && <span className="text-[11px] text-gold-deep">Select a size</span>}
-          </div>
-          <div className="flex flex-wrap gap-1.5">
-            {SIZES.map((s) => (
-              <button
-                key={s}
-                onClick={() => {
-                  setSize(s);
-                  setSizeError(false);
-                }}
-                data-cursor="pointer"
-                className={cn(
-                  "flex h-9 min-w-9 items-center justify-center rounded-full border px-2.5 text-xs transition-colors",
-                  size === s ? "border-ink bg-ink text-paper" : "border-line hover:border-ink"
-                )}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </div>
-
         <div className="mt-6 flex flex-wrap gap-3">
           <MagneticButton size="sm" onClick={handleMoveToCart} magnetic={false}>
-            Move to Bag
+            Add to Bag
           </MagneticButton>
           <MagneticButton size="sm" variant="ghost" onClick={() => toggleWishlist(product)} magnetic={false}>
             Remove

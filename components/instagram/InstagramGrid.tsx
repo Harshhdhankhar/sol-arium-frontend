@@ -13,10 +13,10 @@ export function InstagramGrid() {
         <Reveal className="mb-12 flex items-center justify-between md:mb-16">
           <div className="flex items-center gap-3">
             <Instagram className="h-5 w-5 text-ink-muted" strokeWidth={1.5} />
-            <span className="font-display text-2xl tracking-editorial">@solearium</span>
+            <span className="font-display text-2xl tracking-editorial">Follow @solearium</span>
           </div>
           <span className="eyebrow hidden text-ink-muted md:block">
-            Tag your pair — #WornBySoleArium
+            Tag your pair — #SoleAriumMoments
           </span>
         </Reveal>
 
@@ -33,7 +33,7 @@ export function InstagramGrid() {
             >
               <Image
                 src={src}
-                alt="Sole Arium worn on the street"
+                alt="Sole Arium styled in the everyday"
                 fill
                 sizes="(min-width: 768px) 22vw, 46vw"
                 className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"

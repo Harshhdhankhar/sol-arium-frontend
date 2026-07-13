@@ -17,7 +17,7 @@ export default function WishlistPage() {
     const url = typeof window !== "undefined" ? window.location.href : "";
     const shareData = {
       title: "My Sole Arium Wishlist",
-      text: "Take a look at my saved silhouettes on Sole Arium.",
+      text: "A few silhouettes I have my eye on.",
       url,
     };
     if (navigator.share) {
@@ -36,9 +36,9 @@ export default function WishlistPage() {
   return (
     <div>
       <SectionHeader
-        eyebrow={`${items.length} Saved`}
+        eyebrow={`${items.length} saved`}
         title="Wishlist"
-        description="Silhouettes you're keeping an eye on."
+        description="Silhouettes you have your eye on."
         action={
           items.length > 0 && (
             <button
@@ -47,7 +47,7 @@ export default function WishlistPage() {
               className="flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-medium transition-colors hover:border-ink"
             >
               <Share2 className="h-4 w-4" strokeWidth={1.5} />
-              {copied ? "Link Copied" : "Share Wishlist"}
+              {copied ? "Link Copied" : "Share"}
             </button>
           )
         }
@@ -56,8 +56,8 @@ export default function WishlistPage() {
       {items.length === 0 ? (
         <EmptyState
           icon={Heart}
-          title="Build Your Wishlist"
-          description="Save silhouettes you're considering — tap the heart on any product to add it here."
+          title="Build your wishlist"
+          description="Save silhouettes you love — tap the heart on any product to add it here."
           actionLabel="Explore the Collection"
           actionHref="/shop"
         />

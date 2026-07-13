@@ -6,9 +6,9 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Collections",
+  title: "Collections — Sole Arium",
   description:
-    "Monument, Nocturne, and Meridian — three distinct collections that make up the Sole Arium range.",
+    "Monument, Nocturne, and Meridian — three distinct collections, each a different perspective on movement and form.",
 };
 
 export default function CollectionsPage() {
@@ -16,14 +16,14 @@ export default function CollectionsPage() {
     <div className="pt-28 md:pt-32">
       <section className="section pb-14 pt-0 md:pb-20">
         <div className="container">
-          <span className="eyebrow mb-6 block">Collections</span>
-          <h1 className="max-w-3xl font-display text-5xl leading-[1.02] tracking-editorial md:text-7xl">
-            <RevealText text="Three Studies In Form" />
+          <span className="eyebrow mb-6 block">The Studies</span>
+          <h1 className="max-w-3xl font-display text-5xl leading-[1.1] tracking-editorial md:text-7xl">
+            <RevealText text="Three Perspectives On Movement" />
           </h1>
           <Reveal delay={0.2} className="mt-7 max-w-md">
             <p className="text-pretty text-lg leading-relaxed text-ink-muted">
-              Each collection is a distinct point of view — bound by the same standard
-              of material and construction.
+              Each collection is a distinct point of view — united by the same
+              commitment to material and craft.
             </p>
           </Reveal>
         </div>
@@ -69,7 +69,7 @@ export default function CollectionsPage() {
                     </p>
                     <div className="mt-9">
                       <MagneticButton href="/shop" variant="outline">
-                        Shop The Collection
+                        View The Collection
                       </MagneticButton>
                     </div>
                   </Reveal>

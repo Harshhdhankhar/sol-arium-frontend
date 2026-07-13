@@ -255,7 +255,7 @@ export const notifications: Notification[] = [
   {
     id: "n1",
     category: "Preorder",
-    title: "Your Meridian Mid entered production",
+    title: "Your Meridian Mid has entered production",
     message: "PRE-40231 has moved into the production stage — estimated delivery Aug 14–21.",
     date: "2 hours ago",
     read: false,
@@ -264,7 +264,7 @@ export const notifications: Notification[] = [
     id: "n2",
     category: "Drop",
     title: "Nocturne restock — early access opens Friday",
-    message: "As a Founding Member, you get 24-hour early access before public release.",
+    message: "As a Founding Member, you get 24-hour early access before the public.",
     date: "Yesterday",
     read: false,
   },
@@ -272,7 +272,7 @@ export const notifications: Notification[] = [
     id: "n3",
     category: "Shipping",
     title: "Atlas High has shipped",
-    message: "Order SA-88213 is on its way via UPS. Estimated arrival Jun 30.",
+    message: "Order SA-88213 is on its way via UPS. Est. arrival Jun 30.",
     date: "3 days ago",
     read: true,
   },
@@ -306,7 +306,7 @@ export const notificationPreferenceCopy: Record<
   { title: string; description: string }
 > = {
   dropAnnouncements: {
-    title: "New Drop Announcements",
+    title: "New Drops",
     description: "Be the first to know when a new collection is revealed.",
   },
   restockAlerts: {
@@ -314,7 +314,7 @@ export const notificationPreferenceCopy: Record<
     description: "Get notified the moment your size returns.",
   },
   preorderUpdates: {
-    title: "Pre-order Updates",
+    title: "Reservation Updates",
     description: "Production milestones for reservations you hold.",
   },
   shippingUpdates: {
@@ -366,7 +366,7 @@ export const upcomingReleases: UpcomingRelease[] = [
   },
   {
     id: "up3",
-    name: "Arium One — Archive Colorway",
+    name: "Arium One — Archive Colourway",
     dropDate: "Wed, Aug 26",
     image: img("1595341888016-a392ef81b7de", 900),
     notifyEnabled: true,
@@ -382,7 +382,7 @@ export type Benefit = {
 
 export const membershipBenefits: Record<string, Benefit[]> = {
   Guest: [
-    { title: "Create an Account", description: "Unlock reservations, wishlist sync, and order tracking." },
+    { title: "Create an account", description: "Unlock reservations, wishlist sync, and order tracking." },
   ],
   Member: [
     { title: "Early Access", description: "12-hour early access to new drops." },

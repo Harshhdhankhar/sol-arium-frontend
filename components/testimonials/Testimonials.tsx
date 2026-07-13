@@ -30,9 +30,9 @@ export function Testimonials() {
     >
       <div className="container">
         <Reveal className="mb-16 text-center md:mb-20">
-          <span className="eyebrow mb-4 block">In Their Words</span>
+          <span className="eyebrow mb-4 block">From Our Community</span>
           <h2 className="font-display text-4xl tracking-editorial md:text-6xl">
-            Worn By Design
+            Worn With Purpose
           </h2>
         </Reveal>
 

@@ -4,16 +4,16 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { Reveal, RevealText } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact — Sole Arium",
   description:
-    "Reach the Sole Arium studio for press, wholesale, or general inquiries.",
+    "Reach the Sole Arium studio for press, wholesale, or general inquiries — we respond personally within two business days.",
 };
 
 const info = [
   {
     icon: MapPin,
-    label: "Studio",
-    lines: ["Unit 4, Founders Yard", "Clerkenwell, London EC1"],
+    label: "Visit",
+    lines: ["Unit 4, Founders Yard", "Clerkenwell, London"],
   },
   {
     icon: Mail,
@@ -32,13 +32,13 @@ export default function ContactPage() {
     <div className="pt-28 md:pt-32">
       <section className="section pb-14 pt-0 md:pb-20">
         <div className="container">
-          <span className="eyebrow mb-6 block">Contact</span>
-          <h1 className="max-w-3xl font-display text-5xl leading-[1.02] tracking-editorial md:text-7xl">
-            <RevealText text="Let's Start A Conversation" />
+          <span className="eyebrow mb-6 block">Get In Touch</span>
+          <h1 className="max-w-3xl font-display text-5xl leading-[1.1] tracking-editorial md:text-7xl">
+            <RevealText text="Tell Us What You Need" />
           </h1>
           <Reveal delay={0.2} className="mt-7 max-w-md">
             <p className="text-pretty text-lg leading-relaxed text-ink-muted">
-              For press, wholesale, or general questions — our studio replies
+              Press, wholesale, or just saying hello — our team replies
               personally within two business days.
             </p>
           </Reveal>

@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -21,22 +22,22 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#111111",
-          soft: "#1a1a1a",
-          muted: "#6b6b6b",
-          faint: "#9a9a9a",
+          DEFAULT: "rgb(var(--ink) / <alpha-value>)",
+          soft: "rgb(var(--ink-soft) / <alpha-value>)",
+          muted: "rgb(var(--ink-muted) / <alpha-value>)",
+          faint: "rgb(var(--ink-faint) / <alpha-value>)",
         },
         paper: {
-          DEFAULT: "#ffffff",
-          soft: "#f5f5f5",
-          warm: "#f0eeea",
+          DEFAULT: "rgb(var(--paper) / <alpha-value>)",
+          soft: "rgb(var(--paper-soft) / <alpha-value>)",
+          warm: "rgb(var(--paper-warm) / <alpha-value>)",
         },
         gold: {
           DEFAULT: "#e8a020",
           soft: "#f0b64f",
           deep: "#c9861a",
         },
-        line: "rgba(17,17,17,0.10)",
+        line: "rgb(var(--ink) / 0.1)",
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],

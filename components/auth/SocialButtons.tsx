@@ -41,7 +41,7 @@ export function SocialButtons({ onSelect }: { onSelect: (provider: "google" | "a
         className="flex h-12 items-center justify-center gap-2.5 rounded-full border border-line text-[13px] font-medium text-ink transition-colors hover:border-ink"
       >
         <GoogleMark />
-        Google
+Continue with Google
       </button>
       <button
         type="button"
@@ -50,7 +50,7 @@ export function SocialButtons({ onSelect }: { onSelect: (provider: "google" | "a
         className="flex h-12 items-center justify-center gap-2.5 rounded-full border border-line text-[13px] font-medium text-ink transition-colors hover:border-ink"
       >
         <AppleMark />
-        Apple
+Continue with Apple
       </button>
     </div>
   );

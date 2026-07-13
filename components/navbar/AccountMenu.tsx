@@ -68,7 +68,7 @@ export function AccountMenu() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.98 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute right-0 top-full mt-3 w-64 rounded-2xl border border-line bg-paper p-2 shadow-[0_20px_60px_-20px_rgba(17,17,17,0.25)]"
+            className="absolute right-0 top-full mt-3 w-64 rounded-2xl border border-line bg-paper p-2 shadow-[0_20px_60px_-20px_rgb(var(--ink)/0.25)]"
           >
             <div className="border-b border-line p-4">
               <p className="font-medium">{user.isGuest ? "Guest" : user.name}</p>

@@ -31,11 +31,11 @@ export default function ForgotPasswordPage() {
   if (sent) {
     return (
       <AuthLayout
-        title="Check Your Email"
+        title="Check your email"
         subtitle=""
         footer={
           <Link href="/sign-in" className="link-underline font-medium text-ink" data-cursor="pointer">
-            Back to Sign In
+            Back to sign in
           </Link>
         }
       >
@@ -44,15 +44,15 @@ export default function ForgotPasswordPage() {
             <Mail className="h-5 w-5 text-gold-deep" strokeWidth={1.5} />
           </span>
           <p className="text-pretty leading-relaxed text-ink-muted">
-            If an account exists for <span className="font-medium text-ink">{email}</span>, a
-            password reset link is on its way. It may take a few minutes to arrive.
+            If an account is registered with <span className="font-medium text-ink">{email}</span>, a
+            reset link is on its way. It may take a moment.
           </p>
           <button
             onClick={() => setSent(false)}
             data-cursor="pointer"
             className="link-underline text-sm font-medium text-ink"
           >
-            Use a different email
+            Use a different email address
           </button>
         </div>
       </AuthLayout>
@@ -61,11 +61,11 @@ export default function ForgotPasswordPage() {
 
   return (
     <AuthLayout
-      title="Reset Your Password"
-      subtitle="Enter the email associated with your account and we'll send a link to reset your password."
+        title="Reset your password."
+      subtitle="Enter your email and we&rsquo;ll send a reset link."
       footer={
         <Link href="/sign-in" className="link-underline font-medium text-ink" data-cursor="pointer">
-          Back to Sign In
+          Back to sign in
         </Link>
       }
     >
@@ -80,7 +80,7 @@ export default function ForgotPasswordPage() {
         />
         {error && <p className="text-sm text-gold-deep">{error}</p>}
         <MagneticButton type="submit" variant="solid" size="lg" className="w-full" magnetic={false}>
-          {loading ? "Sending Link…" : "Send Reset Link"}
+          {loading ? "Sending link…" : "Send reset link"}
         </MagneticButton>
       </form>
     </AuthLayout>

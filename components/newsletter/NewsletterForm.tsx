@@ -37,7 +37,7 @@ export function NewsletterForm({
         )}
       >
         <Check className="h-4 w-4 text-gold" strokeWidth={1.5} />
-        <span>You&rsquo;re on the list. Welcome to Sole Arium.</span>
+        <span>You&rsquo;re on the list.</span>
       </div>
     );
   }
@@ -49,7 +49,7 @@ export function NewsletterForm({
           "flex items-center gap-4 border-b py-4 transition-colors",
           isDark
             ? "border-paper/30 focus-within:border-gold"
-            : "border-ink/20 focus-within:border-ink"
+            : "border-ink/20 focus-within:border-gold/50"
         )}
       >
         <input
@@ -60,7 +60,7 @@ export function NewsletterForm({
             setEmail(e.target.value);
             if (status === "error") setStatus("idle");
           }}
-          placeholder="Enter your email"
+          placeholder="Your email address"
           aria-label="Email address"
           className={cn(
             "w-full bg-transparent text-base focus:outline-none",
@@ -82,7 +82,7 @@ export function NewsletterForm({
         </button>
       </div>
       {status === "error" && (
-        <p className="mt-2 text-xs text-gold-deep">Enter a valid email address.</p>
+        <p className="mt-2 text-xs text-gold-deep">Please enter a valid email.</p>
       )}
     </form>
   );
