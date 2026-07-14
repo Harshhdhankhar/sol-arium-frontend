@@ -27,9 +27,6 @@ export function EditorialStrip() {
                     className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"
                   />
                 </div>
-                <p className="mt-2.5 text-xs uppercase tracking-wide text-ink-faint">
-                  {product.line}
-                </p>
               </Link>
             </Reveal>
           ))}

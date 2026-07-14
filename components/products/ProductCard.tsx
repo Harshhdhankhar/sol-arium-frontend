@@ -97,8 +97,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
 
       <Link href={`/shop/${product.slug}`} data-cursor="pointer" className="mt-4 flex items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] uppercase tracking-wide text-ink-faint">{product.line}</p>
-          <p className="mt-1 font-medium">{product.name}</p>
+          <p className="font-medium">{product.name}</p>
           <p className="mt-1 text-sm text-ink-muted">{product.colorway}</p>
         </div>
         <p className="shrink-0 text-sm">{formatPrice(product.price)}</p>

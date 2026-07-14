@@ -87,10 +87,7 @@ export function ProductShowcase() {
             </div>
             <div className="mt-5 flex items-start justify-between gap-3">
               <div>
-                <p className="text-[11px] uppercase tracking-wide text-bone/40">
-                  {product.line}
-                </p>
-                <p className="mt-1 font-display text-xl tracking-editorial">{product.name}</p>
+                <p className="font-display text-xl tracking-editorial">{product.name}</p>
               </div>
               <p className="shrink-0 text-sm text-bone/70">{formatPrice(product.price)}</p>
             </div>
