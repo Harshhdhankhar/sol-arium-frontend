@@ -1,15 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { Heart, Ruler, RotateCcw, Truck } from "lucide-react";
+import { Heart, RotateCcw, Truck } from "lucide-react";
 import type { Product } from "@/lib/data";
 import { formatPrice, cn } from "@/lib/utils";
 import { useStore } from "@/lib/store";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { SizeGuideModal } from "@/components/pdp/SizeGuideModal";
-
-const UK_SIZES = [6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5];
 
 const swatchColor: Record<string, string> = {
   Bone: "#e8e2d6",
@@ -32,22 +28,15 @@ const availabilityStyles: Record<NonNullable<Product["availability"]>, string> =
 export function PurchasePanel({
   product,
   variants,
-  size,
-  sizeError,
   reserved,
-  onSelectSize,
   onReserve,
 }: {
   product: Product;
   variants: Product[];
-  size: number | null;
-  sizeError: boolean;
   reserved: boolean;
-  onSelectSize: (size: number) => void;
   onReserve: () => void;
 }) {
   const { toggleWishlist, isWishlisted } = useStore();
-  const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
 
   const saved = isWishlisted(product.slug);
   const availability = product.availability ?? "In Stock";
@@ -100,35 +89,7 @@ export function PurchasePanel({
         </div>
       )}
 
-      <div id="pdp-size-selector" className="mt-8 scroll-mt-32">
-        <div className="mb-3 flex items-center justify-between">
-          <span className="eyebrow text-ink-faint">Size (UK)</span>
-          <button
-            onClick={() => setSizeGuideOpen(true)}
-            data-cursor="pointer"
-            className="flex items-center gap-1.5 text-xs font-medium text-ink-muted transition-colors hover:text-ink"
-          >
-            <Ruler className="h-3.5 w-3.5" strokeWidth={1.5} />
-            Size Guide
-          </button>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {UK_SIZES.map((s) => (
-            <button
-              key={s}
-              onClick={() => onSelectSize(s)}
-              data-cursor="pointer"
-              className={cn(
-                "flex h-11 min-w-11 items-center justify-center rounded-full border px-3 text-sm transition-colors",
-                size === s ? "border-gold bg-gold text-ink ring-1 ring-gold/30" : "border-line hover:border-gold/50"
-              )}
-            >
-              {s}
-            </button>
-          ))}
-        </div>
-        {sizeError && <p className="mt-2.5 text-xs text-gold-deep">Please select a size</p>}
-      </div>
+      <div id="pdp-purchase" className="scroll-mt-32" />
 
       <div className="mt-6 flex items-center gap-2">
         <span className={cn("inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-medium uppercase tracking-wide", availabilityStyles[availability])}>
@@ -162,7 +123,7 @@ export function PurchasePanel({
 
       {reserved && (
         <p className="mt-3 text-xs text-gold-deep">
-          Added to your bag in UK {size} — our concierge team will confirm availability by email.
+          Added to your bag — our concierge team will confirm availability by email.
         </p>
       )}
 
@@ -190,7 +151,6 @@ export function PurchasePanel({
         </div>
       )}
 
-      <SizeGuideModal open={sizeGuideOpen} onClose={() => setSizeGuideOpen(false)} />
     </div>
   );
 }

@@ -55,8 +55,6 @@ export function ProductDetailClient({
   designedFor: FootProblem[];
 }) {
   const { addToCart } = useStore();
-  const [size, setSize] = useState<number | null>(null);
-  const [sizeError, setSizeError] = useState(false);
   const [reserved, setReserved] = useState(false);
 
   const images = product.gallery?.length ? product.gallery : [product.image, product.hoverImage];
@@ -71,19 +69,9 @@ export function ProductDetailClient({
   ];
 
   const handleReserve = () => {
-    if (!size) {
-      setSizeError(true);
-      document.getElementById("pdp-size-selector")?.scrollIntoView({ behavior: "smooth", block: "center" });
-      return;
-    }
-    addToCart(product, String(size));
+    addToCart(product);
     setReserved(true);
     setTimeout(() => setReserved(false), 2400);
-  };
-
-  const handleSelectSize = (s: number) => {
-    setSize(s);
-    setSizeError(false);
   };
 
   return (
@@ -105,10 +93,7 @@ export function ProductDetailClient({
             <PurchasePanel
               product={product}
               variants={variants}
-              size={size}
-              sizeError={sizeError}
               reserved={reserved}
-              onSelectSize={handleSelectSize}
               onReserve={handleReserve}
             />
           </div>
@@ -195,7 +180,7 @@ export function ProductDetailClient({
                 size="lg"
                 disabled={soldOut}
                 onClick={() =>
-                  document.getElementById("pdp-size-selector")?.scrollIntoView({ behavior: "smooth", block: "center" })
+                  document.getElementById("pdp-purchase")?.scrollIntoView({ behavior: "smooth", block: "center" })
                 }
               >
                 {soldOut ? "Sold Out" : "Reserve Your Pair"}
