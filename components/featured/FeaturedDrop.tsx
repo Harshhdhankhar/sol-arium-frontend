@@ -84,7 +84,7 @@ gold accent, and a sole compound tuned for all-day comfort.
               </MagneticButton>
               <motion.button
                 onClick={() => toggleWishlist(featured)}
-                aria-label={saved ? "Remove from saved" : "Save to your list"}
+                aria-label={saved ? "Remove from wishlist" : "Add to wishlist"}
                 data-cursor="pointer"
                 whileTap={{ scale: 0.9 }}
                 className={cn(

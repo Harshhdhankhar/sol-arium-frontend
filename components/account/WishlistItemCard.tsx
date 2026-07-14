@@ -61,7 +61,7 @@ export function WishlistItemCard({ product, index = 0 }: { product: Product; ind
         <Image src={active.image} alt={active.name} fill sizes="200px" className="object-cover" />
         <button
           onClick={() => toggleWishlist(product)}
-          aria-label="Remove from saved"
+          aria-label="Remove from wishlist"
           data-cursor="pointer"
           className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-paper/90"
         >

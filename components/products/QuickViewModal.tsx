@@ -86,7 +86,7 @@ export function QuickViewModal({
                   </button>
                   <button
                     onClick={() => toggleWishlist(product)}
-                    aria-label={saved ? "Remove from saved" : "Save to your list"}
+                    aria-label={saved ? "Remove from wishlist" : "Add to wishlist"}
                     data-cursor="pointer"
                     className={cn(
                       "flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-colors",

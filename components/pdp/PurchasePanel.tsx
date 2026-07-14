@@ -149,7 +149,7 @@ export function PurchasePanel({
         </MagneticButton>
         <button
           onClick={() => toggleWishlist(product)}
-          aria-label={saved ? "Remove from saved" : "Save for later"}
+          aria-label={saved ? "Remove from wishlist" : "Add to wishlist"}
           data-cursor="pointer"
           className={cn(
             "flex h-14 w-14 shrink-0 items-center justify-center rounded-full border transition-colors",

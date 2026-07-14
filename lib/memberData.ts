@@ -387,7 +387,7 @@ export const membershipBenefits: Record<string, Benefit[]> = {
   Member: [
     { title: "Early Access", description: "12-hour early access to new drops." },
     { title: "Free Standard Shipping", description: "On every order, no minimum." },
-    { title: "Wishlist Sync", description: "Saved across every device." },
+    { title: "Wishlist Sync", description: "Synced across every device." },
   ],
   "Founding Member": [
     { title: "24-Hour Early Access", description: "First in line before every public release." },

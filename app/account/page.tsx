@@ -116,7 +116,7 @@ export default function AccountOverviewPage() {
 
           {wishlisted.length === 0 ? (
             <p className="text-sm leading-relaxed text-ink-muted">
-              Nothing saved yet — tap the heart on any silhouette to add it here.
+              Nothing in your wishlist yet — tap the heart on any silhouette to add it.
             </p>
           ) : (
             <div className="flex items-center gap-3">

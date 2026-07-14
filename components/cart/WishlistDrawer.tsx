@@ -13,12 +13,12 @@ export function WishlistDrawer() {
   const items = products.filter((p) => wishlist.includes(p.slug));
 
   return (
-    <Drawer open={wishlistOpen} onClose={closeWishlist} title={`Saved (${items.length})`}>
+    <Drawer open={wishlistOpen} onClose={closeWishlist} title={`Wishlist (${items.length})`}>
       {items.length === 0 ? (
         <div className="flex h-full flex-col items-center justify-center gap-3 px-7 text-center">
           <p className="font-display text-2xl">Your list is empty</p>
           <p className="text-sm text-ink-muted">
-            Tap the heart on any style to save it to your list.
+            Tap the heart on any style to add it to your wishlist.
           </p>
         </div>
       ) : (
@@ -43,7 +43,7 @@ export function WishlistDrawer() {
                   </div>
                   <button
                     onClick={() => toggleWishlist(item)}
-                    aria-label={`Remove ${item.name} from your saved list`}
+                    aria-label={`Remove ${item.name} from your wishlist`}
                     data-cursor="pointer"
                     className="text-ink-faint transition-colors hover:text-ink"
                   >

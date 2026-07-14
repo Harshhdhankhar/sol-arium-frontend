@@ -64,7 +64,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         <div className="absolute right-4 top-4 z-10 flex flex-col gap-2">
           <button
             onClick={() => toggleWishlist(product)}
-            aria-label={saved ? "Remove from saved" : "Save to your list"}
+            aria-label={saved ? "Remove from wishlist" : "Add to wishlist"}
             data-cursor="pointer"
             className="flex h-9 w-9 items-center justify-center rounded-full bg-paper/90 backdrop-blur-sm transition-transform hover:scale-105"
           >

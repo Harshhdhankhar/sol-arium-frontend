@@ -36,7 +36,7 @@ export default function WishlistPage() {
   return (
     <div>
       <SectionHeader
-        eyebrow={`${items.length} saved`}
+        eyebrow={`${items.length} in wishlist`}
         title="Wishlist"
         description="Silhouettes you have your eye on."
         action={
@@ -57,7 +57,7 @@ export default function WishlistPage() {
         <EmptyState
           icon={Heart}
           title="Build your wishlist"
-          description="Save silhouettes you love — tap the heart on any product to add it here."
+          description="Tap the heart on any product to add it to your wishlist."
           actionLabel="Explore the Collection"
           actionHref="/shop"
         />
