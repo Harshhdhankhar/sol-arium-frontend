@@ -223,49 +223,6 @@ export const lookbook: LookbookShot[] = [
   },
 ];
 
-export type JournalEntry = {
-  slug: string;
-  title: string;
-  category: string;
-  date: string;
-  readTime: string;
-  excerpt: string;
-  image: string;
-};
-
-export const journal: JournalEntry[] = [
-  {
-    slug: "the-anatomy-of-a-silhouette",
-    title: "The Anatomy of a Silhouette",
-    category: "Craft",
-    date: "June 2026",
-    readTime: "6 min",
-    excerpt:
-      "How a single last is refined across two hundred iterations before it earns the Arium name.",
-    image: img("1595950653106-6c9ebd614d3a", 1200),
-  },
-  {
-    slug: "movement-as-identity",
-    title: "Movement as Identity",
-    category: "Editorial",
-    date: "May 2026",
-    readTime: "4 min",
-    excerpt:
-      "A conversation on the space between performance and expression — and why the two are never separate.",
-    image: img("1595341888016-a392ef81b7de", 1200),
-  },
-  {
-    slug: "the-quiet-material",
-    title: "The Quiet Material",
-    category: "Materials",
-    date: "April 2026",
-    readTime: "5 min",
-    excerpt:
-      "Full-grain leather, recycled knit and a sole compound tuned over eighteen months of wear testing.",
-    image: img("1491553895911-0055eca6402d", 1200),
-  },
-];
-
 export const hero = {
   eyebrow: "Movement, Meet Craft",
   heading: ["Footwear Designed", "Around How You", "Move"],
@@ -415,5 +372,4 @@ export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Find Your Fit", href: "/foot-problems" },
   { label: "Contact", href: "/contact" },
-  { label: "Journal", href: "/journal" },
 ];

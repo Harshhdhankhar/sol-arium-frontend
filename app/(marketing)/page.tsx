@@ -6,7 +6,6 @@ import { WhySoleArium } from "@/components/story/WhySoleArium";
 import { ProductShowcase } from "@/components/products/ProductShowcase";
 import { Lookbook } from "@/components/lookbook/Lookbook";
 import { Testimonials } from "@/components/testimonials/Testimonials";
-import { JournalSection } from "@/components/journal/JournalSection";
 import { InstagramGrid } from "@/components/instagram/InstagramGrid";
 import { Newsletter } from "@/components/newsletter/Newsletter";
 
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Lookbook />
       <WhySoleArium />
       <Testimonials />
-      <JournalSection />
       <InstagramGrid />
       <Newsletter />
     </>
